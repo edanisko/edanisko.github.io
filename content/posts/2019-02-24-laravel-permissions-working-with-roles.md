@@ -8,7 +8,12 @@ permalink: /laravel-permissions-working-with-roles/
 categories:
   - Laravel
 tags:
-  - laravel nova spatie permissions gate seeder policy
+  - laravel 
+  - nova 
+  - "spatie permissions" 
+  - gate 
+  - seeder 
+  - policy
 ---
 
 **Install the Package**
