@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>quasar on EdAnisko.com</title>
+    <link>https://edanisko.com/tags/quasar/</link>
+    <description>Recent content in quasar on EdAnisko.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Aug 2020 22:45:54 -0800</lastBuildDate>
+    
+	<atom:link href="https://edanisko.com/tags/quasar/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Quasar Queries</title>
+      <link>https://edanisko.com/posts/2020-08-05-quasar-queries/</link>
+      <pubDate>Wed, 05 Aug 2020 22:45:54 -0800</pubDate>
+      
+      <guid>https://edanisko.com/posts/2020-08-05-quasar-queries/</guid>
+      <description>&lt;p&gt;Adding alpaca api to a node project so I can buy a share of QQQ or AAPL.&lt;/p&gt;
+&lt;p&gt;Its easy enough to use the alpaca CLI in a flat js file.  Next step is to add it to an application, add a few buttons and so on.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,25 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>seeder on EdAnisko.com</title>
-    <link>https://edanisko.com/tags/seeder/</link>
-    <description>Recent content in seeder on EdAnisko.com</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 24 Feb 2019 23:00:55 -0800</lastBuildDate>
-    
-	<atom:link href="https://edanisko.com/tags/seeder/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Laravel Permissions - Working with Roles</title>
-      <link>https://edanisko.com/posts/2019-02-24-laravel-permissions-working-with-roles/</link>
-      <pubDate>Sun, 24 Feb 2019 23:00:55 -0800</pubDate>
-      
-      <guid>https://edanisko.com/posts/2019-02-24-laravel-permissions-working-with-roles/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Install the Package&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Laravel has a way of authorizing a user to act on an object. Please read the &lt;a href=&#34;https://laravel.com/docs/master/authorization&#34;&gt;docs&lt;/a&gt; if you like. You will start off writing Gates. Gates allow and deny access to actions. You can define Gate&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>seeder on EdAnisko.com</title><link>https://edanisko.com/tags/seeder/</link><description>Recent content in seeder on EdAnisko.com</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 24 Feb 2019 23:00:55 -0800</lastBuildDate><atom:link href="https://edanisko.com/tags/seeder/index.xml" rel="self" type="application/rss+xml"/><item><title>Laravel Permissions - Working with Roles</title><link>https://edanisko.com/posts/2019-02-24-laravel-permissions-working-with-roles/</link><pubDate>Sun, 24 Feb 2019 23:00:55 -0800</pubDate><guid>https://edanisko.com/posts/2019-02-24-laravel-permissions-working-with-roles/</guid><description>&lt;p>&lt;strong>Install the Package&lt;/strong>&lt;/p>
+&lt;p>Laravel has a way of authorizing a user to act on an object. Please read the &lt;a href="https://laravel.com/docs/master/authorization">docs&lt;/a> if you like. You will start off writing Gates. Gates allow and deny access to actions. You can define Gate&lt;/p></description></item></channel></rss>

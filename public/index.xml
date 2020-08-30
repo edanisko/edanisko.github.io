@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Be Yourself on EdAnisko.com</title>
+    <link>https://edanisko.com/</link>
+    <description>Recent content in Be Yourself on EdAnisko.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Aug 2020 22:45:54 -0800</lastBuildDate>
+    
+	<atom:link href="https://edanisko.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Quasar Queries</title>
+      <link>https://edanisko.com/posts/2020-08-05-quasar-queries/</link>
+      <pubDate>Wed, 05 Aug 2020 22:45:54 -0800</pubDate>
+      
+      <guid>https://edanisko.com/posts/2020-08-05-quasar-queries/</guid>
+      <description>&lt;p&gt;Adding alpaca api to a node project so I can buy a share of QQQ or AAPL.&lt;/p&gt;
+&lt;p&gt;Its easy enough to use the alpaca CLI in a flat js file.  Next step is to add it to an application, add a few buttons and so on.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Laravel Nova - Big Filter Menu</title>
+      <link>https://edanisko.com/posts/2019-03-04-laravel-nova-big-filter-menu/</link>
+      <pubDate>Mon, 04 Mar 2019 22:45:54 -0800</pubDate>
+      
+      <guid>https://edanisko.com/posts/2019-03-04-laravel-nova-big-filter-menu/</guid>
+      <description>&lt;p&gt;Laravel Nova is a great way to get an admin panel up and running. If you built your project with Laravel, Nova will fit right on top. You can create resources based on your models. The resources have all sorts of fields so you can display&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Laravel Permissions - Working with Roles</title>
+      <link>https://edanisko.com/posts/2019-02-24-laravel-permissions-working-with-roles/</link>
+      <pubDate>Sun, 24 Feb 2019 23:00:55 -0800</pubDate>
+      
+      <guid>https://edanisko.com/posts/2019-02-24-laravel-permissions-working-with-roles/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Install the Package&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Laravel has a way of authorizing a user to act on an object. Please read the &lt;a href=&#34;https://laravel.com/docs/master/authorization&#34;&gt;docs&lt;/a&gt; if you like. You will start off writing Gates. Gates allow and deny access to actions. You can define Gate&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://edanisko.com/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://edanisko.com/contact/</guid>
+      <description>Send me a note if you like. This form uses Formspree, a simple, free form service.
+Your Name Email Address An email address is required.  Message   </description>
+    </item>
+    
+  </channel>
+</rss>
