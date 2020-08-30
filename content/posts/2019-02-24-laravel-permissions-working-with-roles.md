@@ -307,11 +307,12 @@ class PostPolicy
     public function detach(User $user){ return $user->can('detach post'); }
     public function attachAny(User $user){ return $user->can('attachAny post'); }
 
-}</pre>
+}
+```
 
 Making a policy for all the objects is boilerplate. There&#8217;s an abstraction to be done here, but I am going to relax the problem and just copy and paste a little bit. Once you&#8217;re done you can go back and read the Laravel documentation on Authorization and it will make a lot more sense. You will be able to:
 
-<pre data-mode="php" data-theme="monokai" data-fontsize="14" data-lines="Infinity" class="wp-block-simple-code-block-ace">&lt;?php
+```js
 
 Gate::before(function ($user, $ability) {
     if ($user->hasRole('superadmin')) {

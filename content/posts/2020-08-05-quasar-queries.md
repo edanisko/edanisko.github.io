@@ -64,7 +64,7 @@ export { alpacaInstance }
 ```
 
 in /quasar.conf.js add alpaca-api to the boot array:
-```
+```js
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/boot-files

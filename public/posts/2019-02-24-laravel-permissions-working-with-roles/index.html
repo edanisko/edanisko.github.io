@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Laravel Permissions - Working with Roles | EdAnisko.com</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.74.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Laravel Permissions - Working with Roles" />
+<meta property="og:description" content="Install the Package
+Laravel has a way of authorizing a user to act on an object. Please read the docs if you like. You will start off writing Gates. Gates allow and deny access to actions. You can define Gate" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://edanisko.com/posts/2019-02-24-laravel-permissions-working-with-roles/" />
+<meta property="article:published_time" content="2019-02-24T23:00:55-08:00" />
+<meta property="article:modified_time" content="2019-02-24T23:00:55-08:00" />
+<meta itemprop="name" content="Laravel Permissions - Working with Roles">
+<meta itemprop="description" content="Install the Package
+Laravel has a way of authorizing a user to act on an object. Please read the docs if you like. You will start off writing Gates. Gates allow and deny access to actions. You can define Gate">
+<meta itemprop="datePublished" content="2019-02-24T23:00:55-08:00" />
+<meta itemprop="dateModified" content="2019-02-24T23:00:55-08:00" />
+<meta itemprop="wordCount" content="1637">
+
+
+
+<meta itemprop="keywords" content="laravel nova spatie permissions gate seeder policy," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Laravel Permissions - Working with Roles"/>
+<meta name="twitter:description" content="Install the Package
+Laravel has a way of authorizing a user to act on an object. Please read the docs if you like. You will start off writing Gates. Gates allow and deny access to actions. You can define Gate"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-near-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        EdAnisko.com
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="Contact page">
+              Contact
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+<a href="https://www.facebook.com/eddieainla" target="_blank" class="link-transition facebook link dib z-999 pt3 pt0-l mr1" title="Facebook link" rel="noopener" aria-label="follow on Facebook——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://twitter.com/eddieanisko" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+<a href="https://www.linkedin.com/in/ed-anisko/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/orgs/nrml-co/dashboard" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://edanisko.com/posts/2019-02-24-laravel-permissions-working-with-roles/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://edanisko.com/posts/2019-02-24-laravel-permissions-working-with-roles/&amp;text=Laravel%20Permissions%20-%20Working%20with%20Roles" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://edanisko.com/posts/2019-02-24-laravel-permissions-working-with-roles/&amp;title=Laravel%20Permissions%20-%20Working%20with%20Roles" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Laravel Permissions - Working with Roles</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              <a href="mailto:ed.anisko@gmal.com">ed.anisko@gmal.com</a>
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-02-24T23:00:55-08:00">February 24, 2019</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>Install the Package</strong></p>
+<p>Laravel has a way of authorizing a user to act on an object. Please read the <a href="https://laravel.com/docs/master/authorization">docs</a> if you like. You will start off writing Gates. Gates allow and deny access to actions. You can define Gate</p>
+<p>with closures. You can point the Gate to a Policy method which is defined somewhere else. Then you try to figure out where to put the gate. I didn’t get far because half -way through docs I noticed this guy:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">//TODO: wth is isSuperAdmin()
+</span><span style="color:#75715e">//TODO: is $ability used for anything??
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">Gate</span><span style="color:#f92672">::</span><span style="color:#a6e22e">before</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">$user</span>, <span style="color:#a6e22e">$ability</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">$user</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">isSuperAdmin</span>()) {
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+    }
+});
+
+<span style="color:#75715e">// TL;DR = This is the hard way.
+</span></code></pre></div><p>I’ve installed Laravel more times than I’d like to admit. So I know that the prefab App\User class does not have the function isSuperAdmin(). Because this is what I want, I stopped reading. What I want is a simple way to authorize user actions against a given resource. Permissions or Roles, something like that.</p>
+<pre><code class="language-code" data-lang="code">google: laravel permissions roles
+</code></pre><p>First thing up is <a href="https://github.com/spatie/laravel-permission">spatie/laravel-permissions</a>. Of course there are others, but this is the one. Spatie is similiar to zizaco/entrust. I used entrust once on a project in 2017 and it worked ok. Unfortunately it looks like no one has updated since 2017. Unfortunately I didn’t pick spatie back then. So search around if you like or simply:</p>
+<pre><code class="language-code" data-lang="code">composer require spatie/laravel-permission
+</code></pre><h4 id="follow-the-directions">Follow the Directions</h4>
+<p>Setting up laravel-permissions is about as hard as setting up a plugin gets. Here are the basic steps:</p>
+<ul>
+<li>composer require</li>
+<li>modify providers in config/app.php</li>
+<li>publish the migration</li>
+<li>migrate your application</li>
+</ul>
+<p>I read these docs a few times. Authorization structures can be quite complex. The effects of doing it wrong can lead to serious, even catastrophic business implications. Authentication lets a user in. Authorization will stop users from performing high level actions. Install the package and follow the directions and you will be able to do things like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// TL;DR = This is the easy way.
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">Permission</span><span style="color:#f92672">::</span><span style="color:#a6e22e">create</span>([<span style="color:#e6db74">&#39;name&#39;</span> =&gt; <span style="color:#e6db74">&#39;force delete all users&#39;</span>]);
+
+<span style="color:#a6e22e">$new_role</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Role</span><span style="color:#f92672">::</span><span style="color:#a6e22e">create</span>([<span style="color:#e6db74">&#39;name&#39;</span> =&gt; <span style="color:#e6db74">&#39;superadmin&#39;</span>]);
+<span style="color:#a6e22e">$new_role</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">givePermissionTo</span>(<span style="color:#a6e22e">Permission</span><span style="color:#f92672">::</span><span style="color:#a6e22e">all</span>());
+
+<span style="color:#a6e22e">$user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">User</span><span style="color:#f92672">::</span><span style="color:#a6e22e">find</span>(<span style="color:#ae81ff">1</span>); <span style="color:#75715e">//assuming this is you
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$user</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">assignRole</span>(<span style="color:#e6db74">&#39;superadmin&#39;</span>);
+
+<span style="color:#75715e">//then later
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span>( <span style="color:#a6e22e">$user</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">can</span>(<span style="color:#e6db74">&#39;force delete all users&#39;</span>) )
+{
+    <span style="color:#a6e22e">User</span><span style="color:#f92672">::</span><span style="color:#a6e22e">truncate</span>(); <span style="color:#75715e">//or whatever
+</span><span style="color:#75715e"></span>}
+</code></pre></div><h4 id="seeding-roles-and-permissions">Seeding Roles and Permissions</h4>
+<p>So now you can create Permissions and/or Roles and assign them to Objects. This is where the docs go silent. It turns out there are only a few actions that can be performed on an object and that’s nice. Therefore only a few permissions per object are needed to govern these actions. They are as follows:</p>
+<ul>
+<li>viewAny</li>
+<li>view</li>
+<li>create</li>
+<li>update</li>
+<li>delete</li>
+<li>forceDelete</li>
+<li>restore</li>
+<li>add</li>
+<li>attach</li>
+<li>detach</li>
+<li>attachAny</li>
+</ul>
+<p>This list is the basket of cruddy actions available in Laravel. I have combined Laravel Nova here as well. Consider the App\Comment object in a a blog. You wind up with a creating a set of permissions like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">//creating permissions for App\Comment
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">Permission</span><span style="color:#f92672">::</span><span style="color:#a6e22e">create</span>([<span style="color:#e6db74">&#39;name&#39;</span> =&gt; <span style="color:#e6db74">&#39;view any comment&#39;</span>]); <span style="color:#75715e">// think of this as &#39;hide all the posts??&#39;&#39;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">Permission</span><span style="color:#f92672">::</span><span style="color:#a6e22e">create</span>([<span style="color:#e6db74">&#39;name&#39;</span> =&gt; <span style="color:#e6db74">&#39;view comment&#39;</span>]);
+<span style="color:#a6e22e">Permission</span><span style="color:#f92672">::</span><span style="color:#a6e22e">create</span>([<span style="color:#e6db74">&#39;name&#39;</span> =&gt; <span style="color:#e6db74">&#39;create comment&#39;</span>]);
+<span style="color:#a6e22e">Permission</span><span style="color:#f92672">::</span><span style="color:#a6e22e">create</span>([<span style="color:#e6db74">&#39;name&#39;</span> =&gt; <span style="color:#e6db74">&#39;update comment&#39;</span>]);
+<span style="color:#a6e22e">Permission</span><span style="color:#f92672">::</span><span style="color:#a6e22e">create</span>([<span style="color:#e6db74">&#39;name&#39;</span> =&gt; <span style="color:#e6db74">&#39;delete comment&#39;</span>]); <span style="color:#75715e">// soft delete
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">Permission</span><span style="color:#f92672">::</span><span style="color:#a6e22e">create</span>([<span style="color:#e6db74">&#39;name&#39;</span> =&gt; <span style="color:#e6db74">&#39;force delete comment&#39;</span>]); <span style="color:#75715e">// destroy
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">Permission</span><span style="color:#f92672">::</span><span style="color:#a6e22e">create</span>([<span style="color:#e6db74">&#39;name&#39;</span> =&gt; <span style="color:#e6db74">&#39;restore comment&#39;</span>]); <span style="color:#75715e">// restore a soft delete
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">Permission</span><span style="color:#f92672">::</span><span style="color:#a6e22e">create</span>([<span style="color:#e6db74">&#39;name&#39;</span> =&gt; <span style="color:#e6db74">&#39;add comment&#39;</span>]); <span style="color:#75715e">// used with relationships 
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">Permission</span><span style="color:#f92672">::</span><span style="color:#a6e22e">create</span>([<span style="color:#e6db74">&#39;name&#39;</span> =&gt; <span style="color:#e6db74">&#39;attach comment&#39;</span>]); <span style="color:#75715e">// used with many to many relationships 
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">Permission</span><span style="color:#f92672">::</span><span style="color:#a6e22e">create</span>([<span style="color:#e6db74">&#39;name&#39;</span> =&gt; <span style="color:#e6db74">&#39;detach comment&#39;</span>]); <span style="color:#75715e">// inverse of attach 
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">Permission</span><span style="color:#f92672">::</span><span style="color:#a6e22e">create</span>([<span style="color:#e6db74">&#39;name&#39;</span> =&gt; <span style="color:#e6db74">&#39;attach any comment&#39;</span>]); <span style="color:#75715e">// disallow a user from attaching this model to anything
+</span></code></pre></div><p>That&rsquo;s just for App\Comment. Do the same for User, Post and Tags there are quite a few permissions piling up. Lots of typeing. Now you have to attach them to Roles. Admin, Moderator, User, Guest… nightmare. I have an app with 26 objects and 5 roles. That’s 260 permissions and a possible 1300 grants. A colleague told me years ago, “if you copy and pasted it more than twice, you’re doing it wrong”. So this this problem qualifies some kind of configuration management.</p>
+<p>I turned to the Lavavel database seeder and came up with this:</p>
+<pre><code class="language-code" data-lang="code">php artisan make:seeder RoleSeeder
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">use</span> <span style="color:#a6e22e">App</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">User</span>;
+<span style="color:#a6e22e">use</span> <span style="color:#a6e22e">Illuminate</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Database</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Seeder</span>;
+<span style="color:#a6e22e">use</span> <span style="color:#a6e22e">Illuminate</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Support</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Facades</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">DB</span>;
+<span style="color:#a6e22e">use</span> <span style="color:#a6e22e">Spatie</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Permission</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Models</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Role</span>;
+<span style="color:#a6e22e">use</span> <span style="color:#a6e22e">Spatie</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Permission</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Models</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Permission</span>;
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RoleSeeder</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Seeder</span>
+{
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * Seed roles and permissions using spatie/permissions.
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @return void
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">run</span>()
+    {
+
+        <span style="color:#75715e">/*
+</span><span style="color:#75715e">         * !!! This is meant to be run on a new installation only !!!
+</span><span style="color:#75715e">         *
+</span><span style="color:#75715e">         * It will delete any preexisting users.
+</span><span style="color:#75715e">         *
+</span><span style="color:#75715e">         * ALWAYS BE CAREFUL!
+</span><span style="color:#75715e">         *
+</span><span style="color:#75715e">         * */</span>
+
+        <span style="color:#75715e">//Delete all the relevant tables and caches.
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">$this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">command</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;truncating users, roles and permissions tables&#39;</span>);
+        <span style="color:#a6e22e">app</span>()[<span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Spatie</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Permission</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">PermissionRegistrar</span><span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>]<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">forgetCachedPermissions</span>();
+
+        <span style="color:#a6e22e">DB</span><span style="color:#f92672">::</span><span style="color:#a6e22e">statement</span>(<span style="color:#e6db74">&#39;SET FOREIGN_KEY_CHECKS = 0;&#39;</span>);
+        <span style="color:#a6e22e">DB</span><span style="color:#f92672">::</span><span style="color:#a6e22e">statement</span>(<span style="color:#e6db74">&#39;truncate table users;&#39;</span>);
+        <span style="color:#a6e22e">DB</span><span style="color:#f92672">::</span><span style="color:#a6e22e">statement</span>(<span style="color:#e6db74">&#39;truncate table roles;&#39;</span>);
+        <span style="color:#a6e22e">DB</span><span style="color:#f92672">::</span><span style="color:#a6e22e">statement</span>(<span style="color:#e6db74">&#39;truncate table permissions;&#39;</span>);
+        <span style="color:#a6e22e">DB</span><span style="color:#f92672">::</span><span style="color:#a6e22e">statement</span>(<span style="color:#e6db74">&#39;truncate table model_has_permissions;&#39;</span>);
+        <span style="color:#a6e22e">DB</span><span style="color:#f92672">::</span><span style="color:#a6e22e">statement</span>(<span style="color:#e6db74">&#39;truncate table model_has_roles;&#39;</span>);
+        <span style="color:#a6e22e">DB</span><span style="color:#f92672">::</span><span style="color:#a6e22e">statement</span>(<span style="color:#e6db74">&#39;truncate table role_has_permissions;&#39;</span>);
+        <span style="color:#a6e22e">DB</span><span style="color:#f92672">::</span><span style="color:#a6e22e">statement</span>(<span style="color:#e6db74">&#39;SET FOREIGN_KEY_CHECKS = 1;&#39;</span>);
+
+        <span style="color:#75715e">//Collect setting from the configuration script in configs/role_seeder.php
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">$roles</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">config</span>(<span style="color:#e6db74">&#39;role_seeder.roles&#39;</span>);
+        <span style="color:#a6e22e">$objects</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">config</span>(<span style="color:#e6db74">&#39;role_seeder.objects&#39;</span>);
+        <span style="color:#a6e22e">$permissions_map</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">collect</span>(<span style="color:#a6e22e">config</span>(<span style="color:#e6db74">&#39;role_seeder.permissions_map&#39;</span>));
+        <span style="color:#a6e22e">$role_has_permission</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">config</span>(<span style="color:#e6db74">&#39;role_seeder.role_has_permission&#39;</span>);
+
+
+        <span style="color:#75715e">//Create all the permissions with a common naming convention
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">foreach</span> (<span style="color:#a6e22e">$objects</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">$object_name</span>)
+        {
+            <span style="color:#a6e22e">foreach</span> (<span style="color:#a6e22e">$permissions_map</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">$permission_key</span> =&gt; <span style="color:#a6e22e">$permission_value</span>)
+            {
+                <span style="color:#a6e22e">$name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$permission_value</span> . <span style="color:#e6db74">&#39; &#39;</span> . <span style="color:#a6e22e">$object_name</span>;
+                <span style="color:#a6e22e">Permission</span><span style="color:#f92672">::</span><span style="color:#a6e22e">create</span>([<span style="color:#e6db74">&#39;name&#39;</span> =&gt; <span style="color:#a6e22e">$name</span>]);
+                <span style="color:#a6e22e">$this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">command</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;Creating Permission: &#39;</span> . <span style="color:#a6e22e">$name</span>);
+            }
+        }
+
+        <span style="color:#75715e">//Create each role
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">foreach</span> (<span style="color:#a6e22e">$roles</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">$role</span>) {
+            <span style="color:#a6e22e">$this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">command</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;Creating Role: &#39;</span>. <span style="color:#a6e22e">$role</span>);
+            <span style="color:#a6e22e">$new_role</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Role</span><span style="color:#f92672">::</span><span style="color:#a6e22e">create</span>([<span style="color:#e6db74">&#39;name&#39;</span> =&gt; <span style="color:#a6e22e">$role</span>]);
+
+            <span style="color:#75715e">//Instead of copying a lot of letters in the config script, an empty array means ALL permissions
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">$role_has_permission</span>[<span style="color:#a6e22e">$role</span>] <span style="color:#f92672">===</span> [])
+            {
+                <span style="color:#75715e">//this is the superadmin
+</span><span style="color:#75715e"></span>                <span style="color:#a6e22e">$this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">command</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">warn</span>(<span style="color:#e6db74">&#39;Granting Role: &#39;</span>. <span style="color:#a6e22e">$role</span> .<span style="color:#e6db74">&#39; all permissions.&#39;</span>);
+                <span style="color:#a6e22e">$new_role</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">givePermissionTo</span>( <span style="color:#a6e22e">Permission</span><span style="color:#f92672">::</span><span style="color:#a6e22e">all</span>() );
+            }
+            <span style="color:#66d9ef">else</span>
+            {
+                <span style="color:#75715e">//givePermission to each role as prescribed in the config
+</span><span style="color:#75715e"></span>                <span style="color:#a6e22e">foreach</span>(<span style="color:#a6e22e">$role_has_permission</span>[<span style="color:#a6e22e">$role</span>] <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">$object</span> =&gt; <span style="color:#a6e22e">$perms</span>)
+                {
+                    <span style="color:#a6e22e">$perms_ary</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#34;,&#34;</span>, <span style="color:#a6e22e">$perms</span>);
+                    <span style="color:#a6e22e">foreach</span>(<span style="color:#a6e22e">$perms_ary</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">$perm</span>)
+                    {
+                        <span style="color:#a6e22e">$name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$permissions_map</span>[<span style="color:#a6e22e">$perm</span>] . <span style="color:#e6db74">&#39; &#39;</span> . <span style="color:#a6e22e">$object</span>;
+                        <span style="color:#a6e22e">$new_role</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">givePermissionTo</span>( <span style="color:#a6e22e">$name</span> );
+                        <span style="color:#a6e22e">$this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">command</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;Granting Role: &#39;</span>. <span style="color:#a6e22e">$role</span> .<span style="color:#e6db74">&#39; permission: &#39;</span>. <span style="color:#a6e22e">$name</span>);
+                    }
+                }
+
+            }
+
+            <span style="color:#75715e">//this creates a user and grants the role so you can sign in and test things out.
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">$data</span> <span style="color:#f92672">=</span> [
+                <span style="color:#e6db74">&#39;name&#39;</span> =&gt; <span style="color:#a6e22e">$role</span>,
+                <span style="color:#e6db74">&#39;email&#39;</span> =&gt; <span style="color:#a6e22e">$role</span> . <span style="color:#e6db74">&#39;@yourwtvr.com&#39;</span>,
+                <span style="color:#e6db74">&#39;password&#39;</span> =&gt; <span style="color:#a6e22e">Hash</span><span style="color:#f92672">::</span><span style="color:#a6e22e">make</span>(<span style="color:#e6db74">&#39;secret&#39;</span>)
+            ];
+            <span style="color:#a6e22e">$user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">User</span><span style="color:#f92672">::</span><span style="color:#a6e22e">create</span>(<span style="color:#a6e22e">$data</span>);
+            <span style="color:#a6e22e">$user</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">assignRole</span>(<span style="color:#a6e22e">$role</span>);
+
+        }
+    }
+}
+</code></pre></div><p>I create a configuration script in the config directory. It looks like this.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// file: config/role_seeder.php
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">return</span> [
+    <span style="color:#e6db74">&#39;roles&#39;</span> =&gt; [
+        <span style="color:#e6db74">&#39;superadmin&#39;</span>, <span style="color:#e6db74">&#39;moderator&#39;</span>, <span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#e6db74">&#39;guest&#39;</span>
+    ],
+
+    <span style="color:#e6db74">&#39;objects&#39;</span> =&gt; [
+        <span style="color:#e6db74">&#39;user&#39;</span>,
+        <span style="color:#e6db74">&#39;post&#39;</span>,
+        <span style="color:#e6db74">&#39;comment&#39;</span>,
+        <span style="color:#e6db74">&#39;tag&#39;</span>,
+        <span style="color:#e6db74">&#39;permission&#39;</span>,
+    ],
+
+    <span style="color:#e6db74">&#39;permissions_map&#39;</span> =&gt; [
+        <span style="color:#e6db74">&#39;va&#39;</span> =&gt; <span style="color:#e6db74">&#39;view any&#39;</span>,
+        <span style="color:#e6db74">&#39;v&#39;</span> =&gt; <span style="color:#e6db74">&#39;view&#39;</span>,
+        <span style="color:#e6db74">&#39;c&#39;</span> =&gt; <span style="color:#e6db74">&#39;create&#39;</span>,
+        <span style="color:#e6db74">&#39;u&#39;</span> =&gt; <span style="color:#e6db74">&#39;update&#39;</span>,
+        <span style="color:#e6db74">&#39;d&#39;</span> =&gt; <span style="color:#e6db74">&#39;delete&#39;</span>,
+        <span style="color:#e6db74">&#39;fd&#39;</span> =&gt; <span style="color:#e6db74">&#39;force delete&#39;</span>,
+        <span style="color:#e6db74">&#39;r&#39;</span> =&gt; <span style="color:#e6db74">&#39;restore&#39;</span>,
+        <span style="color:#e6db74">&#39;a&#39;</span> =&gt; <span style="color:#e6db74">&#39;add&#39;</span>,
+        <span style="color:#e6db74">&#39;at&#39;</span> =&gt; <span style="color:#e6db74">&#39;attach&#39;</span>,
+        <span style="color:#e6db74">&#39;dat&#39;</span> =&gt; <span style="color:#e6db74">&#39;detach&#39;</span>,
+        <span style="color:#e6db74">&#39;ata&#39;</span> =&gt; <span style="color:#e6db74">&#39;attachAny&#39;</span>,
+    ],
+
+    <span style="color:#e6db74">&#39;role_has_permission&#39;</span> =&gt; [
+        <span style="color:#e6db74">&#39;superadmin&#39;</span> =&gt; [], <span style="color:#75715e">// this will grant all permissions
+</span><span style="color:#75715e"></span>        <span style="color:#e6db74">&#39;moderator&#39;</span> =&gt; [
+            <span style="color:#e6db74">&#39;user&#39;</span> =&gt; <span style="color:#e6db74">&#39;va,v,c,u&#39;</span>,
+            <span style="color:#e6db74">&#39;post&#39;</span> =&gt; <span style="color:#e6db74">&#39;va,v,c,u,d,fd,r&#39;</span>,
+            <span style="color:#e6db74">&#39;comment&#39;</span> =&gt; <span style="color:#e6db74">&#39;va,v,c,u,d,fd,r,a&#39;</span>,
+            <span style="color:#e6db74">&#39;tag&#39;</span> =&gt; <span style="color:#e6db74">&#39;va,v,c,u,d,fd,r,at,dat&#39;</span>
+        ],
+        <span style="color:#e6db74">&#39;user&#39;</span> =&gt; [
+            <span style="color:#e6db74">&#39;post&#39;</span> =&gt; <span style="color:#e6db74">&#39;va,v,c,u,d,fd&#39;</span>,
+            <span style="color:#e6db74">&#39;comment&#39;</span> =&gt; <span style="color:#e6db74">&#39;va,v,c,u,d,fd,a&#39;</span>,
+            <span style="color:#e6db74">&#39;tag&#39;</span> =&gt; <span style="color:#e6db74">&#39;va,v,at,dat&#39;</span>,
+        ],
+        <span style="color:#e6db74">&#39;guest&#39;</span> =&gt; [
+            <span style="color:#e6db74">&#39;post&#39;</span> =&gt; <span style="color:#e6db74">&#39;va,v&#39;</span>,
+            <span style="color:#e6db74">&#39;comment&#39;</span> =&gt; <span style="color:#e6db74">&#39;va,v,c,a&#39;</span>
+        ],
+    ]
+];
+</code></pre></div><p>To finish up seeding your authorization structure follow this up with:</p>
+<pre><code class="language-code" data-lang="code">php artisan config:cache
+php artisan db:seed --class=RoleSeeder
+</code></pre><p>You now have a few users with the corresponding roles. You can login and check how things look. Loosen restrictions where you need to, tighten restrictions where you can.</p>
+<h4 id="so-what-about-the-gates">So What About The Gates?!</h4>
+<p>Right. Laravel is really a beautiful framework. I have been using it since v4.1 and have taken it with me to every job and project since. The creators have taken a deep dive to make programming easier and even … fun. So much so that Laravel feels like its own language on top of PHP. It reminds me of ObjectiveC, a language where the underlying language, C, is unrecognizable. So if you aren’t using Gates yet, don’t worry, the framework is.</p>
+<p>In the case of Laravel Nova, creating all of these permissions and roles really makes your life easier. Nova is sniffing for authorizations every time you click anything. It is doing this using Policies. Let’s create a Policy for App\Post.</p>
+<pre><code class="language-code" data-lang="code">php artisan make:policy PostPolicy
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">
+<span style="color:#a6e22e">namespace</span> <span style="color:#a6e22e">App</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Policies</span>;
+
+<span style="color:#a6e22e">use</span> <span style="color:#a6e22e">App</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">User</span>;
+<span style="color:#a6e22e">use</span> <span style="color:#a6e22e">Illuminate</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Auth</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Access</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">HandlesAuthorization</span>;
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostPolicy</span>
+{
+    <span style="color:#a6e22e">use</span> <span style="color:#a6e22e">HandlesAuthorization</span>;
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">viewAny</span>(<span style="color:#a6e22e">User</span> <span style="color:#a6e22e">$user</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">$user</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">can</span>(<span style="color:#e6db74">&#39;view any post&#39;</span>); }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">view</span>(<span style="color:#a6e22e">User</span> <span style="color:#a6e22e">$user</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">$user</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">can</span>(<span style="color:#e6db74">&#39;view post&#39;</span>); }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">create</span>(<span style="color:#a6e22e">User</span> <span style="color:#a6e22e">$user</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">$user</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">can</span>(<span style="color:#e6db74">&#39;create post&#39;</span>); }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">update</span>(<span style="color:#a6e22e">User</span> <span style="color:#a6e22e">$user</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">$user</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">can</span>(<span style="color:#e6db74">&#39;update post&#39;</span>); }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#66d9ef">delete</span>(<span style="color:#a6e22e">User</span> <span style="color:#a6e22e">$user</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">$user</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">can</span>(<span style="color:#e6db74">&#39;delete post&#39;</span>); }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">forceDelete</span>(<span style="color:#a6e22e">User</span> <span style="color:#a6e22e">$user</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">$user</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">can</span>(<span style="color:#e6db74">&#39;force delete post&#39;</span>); }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">restore</span>(<span style="color:#a6e22e">User</span> <span style="color:#a6e22e">$user</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">$user</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">can</span>(<span style="color:#e6db74">&#39;restore post&#39;</span>); }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">User</span> <span style="color:#a6e22e">$user</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">$user</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">can</span>(<span style="color:#e6db74">&#39;add post&#39;</span>); }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">attach</span>(<span style="color:#a6e22e">User</span> <span style="color:#a6e22e">$user</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">$user</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">can</span>(<span style="color:#e6db74">&#39;attach post&#39;</span>); }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">detach</span>(<span style="color:#a6e22e">User</span> <span style="color:#a6e22e">$user</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">$user</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">can</span>(<span style="color:#e6db74">&#39;detach post&#39;</span>); }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">attachAny</span>(<span style="color:#a6e22e">User</span> <span style="color:#a6e22e">$user</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">$user</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">can</span>(<span style="color:#e6db74">&#39;attachAny post&#39;</span>); }
+
+}
+</code></pre></div><p>Making a policy for all the objects is boilerplate. There’s an abstraction to be done here, but I am going to relax the problem and just copy and paste a little bit. Once you’re done you can go back and read the Laravel documentation on Authorization and it will make a lot more sense. You will be able to:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">
+<span style="color:#a6e22e">Gate</span><span style="color:#f92672">::</span><span style="color:#a6e22e">before</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">$user</span>, <span style="color:#a6e22e">$ability</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">$user</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">hasRole</span>(<span style="color:#e6db74">&#39;superadmin&#39;</span>)) {
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+    }
+});
+</code></pre></div><p>Or</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * Register any authentication / authorization services.
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * @return void
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">boot</span>()
+{
+    <span style="color:#a6e22e">$this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">registerPolicies</span>();
+
+    <span style="color:#a6e22e">Gate</span><span style="color:#f92672">::</span><span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;update-post&#39;</span>, <span style="color:#e6db74">&#39;App\Policies\PostPolicy@update&#39;</span>);
+}
+</code></pre></div><p>and even</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">namespace</span> <span style="color:#a6e22e">App</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Providers</span>;
+
+<span style="color:#a6e22e">use</span> <span style="color:#a6e22e">Illuminate</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Support</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Facades</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Gate</span>;
+<span style="color:#a6e22e">use</span> <span style="color:#a6e22e">Illuminate</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Foundation</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Support</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Providers</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">AuthServiceProvider</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">ServiceProvider</span>;
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AuthServiceProvider</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">ServiceProvider</span>
+{
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * The policy mappings for the application.
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @var array
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#a6e22e">$policies</span> <span style="color:#f92672">=</span> [
+        <span style="color:#e6db74">&#39;App\User&#39;</span> =&gt; <span style="color:#e6db74">&#39;App\Policies\UserPolicy&#39;</span>,
+        <span style="color:#e6db74">&#39;App\Post&#39;</span> =&gt; <span style="color:#e6db74">&#39;App\Policies\PostPolicy&#39;</span>,
+        <span style="color:#e6db74">&#39;App\Comment&#39;</span> =&gt; <span style="color:#e6db74">&#39;App\Policies\CommentPolicy&#39;</span>,
+        <span style="color:#e6db74">&#39;App\Tag&#39;</span> =&gt; <span style="color:#e6db74">&#39;App\Policies\TagPolicy&#39;</span>,
+        <span style="color:#e6db74">&#39;App\Permission&#39;</span> =&gt; <span style="color:#e6db74">&#39;App\Policies\PermissionPolicy&#39;</span>,
+    ];
+    
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * Register any authentication / authorization services.
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @return void
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">boot</span>()
+    {
+        <span style="color:#a6e22e">$this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">registerPolicies</span>();
+
+        <span style="color:#75715e">//
+</span><span style="color:#75715e"></span>    }         
+</code></pre></div><p>and you are good to go. Now when the wrong kind of user tries an action on the wrong kind of object, Laravel with throw an exception in the form of a pretty 403 screen.</p>
+<p>In Laravel Nova, after registering these policies, Nova is checking them relentlessly. Play with this code in your Nova Resources. Tweak your permissions and navigation so your Roles can have their own distinct looking interfaces.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * Indicates if the resource should be displayed in the sidebar.
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @param Request $request
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#75715e">//public static $displayInNavigation = true;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">availableForNavigation</span>(<span style="color:#a6e22e">Request</span> <span style="color:#a6e22e">$request</span>)
+    {
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">$request</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">user</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">can</span>(<span style="color:#e6db74">&#39;view any post&#39;</span>);
+    }
+</code></pre></div><p>Easy!</p><ul class="pa0">
+  
+   <li class="list">
+     <a href="/tags/laravel-nova-spatie-permissions-gate-seeder-policy" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">laravel nova spatie permissions gate seeder policy</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://edanisko.com" >
+    &copy;  EdAnisko.com 2020 
+  </a>
+    <div>
+
+
+
+<a href="https://www.facebook.com/eddieainla" target="_blank" class="link-transition facebook link dib z-999 pt3 pt0-l mr1" title="Facebook link" rel="noopener" aria-label="follow on Facebook——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://twitter.com/eddieanisko" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+<a href="https://www.linkedin.com/in/ed-anisko/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/orgs/nrml-co/dashboard" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
