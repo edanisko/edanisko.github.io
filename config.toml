@@ -7,7 +7,7 @@ theme = "ananke"
 DefaultContentLanguage = "en"
 SectionPagesMenu = "main"
 Paginate = 3 # this is set low for demonstrating with dummy content. Set to a higher number
-googleAnalytics = ""
+googleAnalytics = "UA-36438806-2"
 enableRobotsTXT = true
 
 [sitemap]
@@ -18,7 +18,7 @@ enableRobotsTXT = true
 [params]
   favicon = ""
   site_logo = ""
-  description = "The last theme you'll ever need. Maybe."
+  description = "Be Yourself - Without a Net."
   facebook = "https://www.facebook.com/eddieainla"
   twitter = "https://twitter.com/eddieanisko"
   instagram = ""
