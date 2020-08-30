@@ -18,7 +18,7 @@ enableRobotsTXT = true
   filename = "sitemap.xml"
 
 [params]
-  favicon = ""
+  favicon = "/images/favicon.ico"
   site_logo = ""
   description = "Be Yourself - Without a Net."
   facebook = "https://www.facebook.com/eddieainla"
