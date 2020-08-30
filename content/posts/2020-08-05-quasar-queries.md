@@ -6,7 +6,13 @@ layout: post
 categories:
   - Quasar
   - Node
-  - Setup
+  - Trading
+tags:
+  - api 
+  - node 
+  - trading
+  - apps 
+  - quasar    
 ---
 Adding alpaca api to a node project so I can buy a share of QQQ or AAPL. 
 
