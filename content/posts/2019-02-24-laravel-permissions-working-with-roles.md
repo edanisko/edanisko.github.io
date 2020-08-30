@@ -310,7 +310,7 @@ class PostPolicy
 }
 ```
 
-Making a policy for all the objects is boilerplate. There&#8217;s an abstraction to be done here, but I am going to relax the problem and just copy and paste a little bit. Once you&#8217;re done you can go back and read the Laravel documentation on Authorization and it will make a lot more sense. You will be able to:
+Making a policy for all the objects is boilerplate. There's an abstraction to be done here, but I am going to relax the problem and just copy and paste a little bit. Once you're done you can go back and read the Laravel documentation on Authorization and it will make a lot more sense. You will be able to:
 
 ```js
 

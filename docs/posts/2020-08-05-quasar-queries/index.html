@@ -256,15 +256,15 @@ Its easy enough to use the alpaca CLI in a flat js file.  Next step is to add it
 <span style="color:#66d9ef">export</span> { <span style="color:#a6e22e">alpacaInstance</span> }
 
 </code></pre></div><p>in /quasar.conf.js add alpaca-api to the boot array:</p>
-<pre><code>    // app boot file (/src/boot)
-    // --&gt; boot files are part of &quot;main.js&quot;
-    // https://quasar.dev/quasar-cli/boot-files
-    boot: [
-      'alpaca-api',
-      'axios'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#75715e">// app boot file (/src/boot)
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// --&gt; boot files are part of &#34;main.js&#34;
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// https://quasar.dev/quasar-cli/boot-files
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">boot</span><span style="color:#f92672">:</span> [
+      <span style="color:#e6db74">&#39;alpaca-api&#39;</span>,
+      <span style="color:#e6db74">&#39;axios&#39;</span>
     ],
 
-</code></pre><p>Then change /src/App.vue</p>
+</code></pre></div><p>Then change /src/App.vue</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">template</span><span style="color:#f92672">&gt;</span>
   <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;q-app&#34;</span><span style="color:#f92672">&gt;</span>
     <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">router</span><span style="color:#f92672">-</span><span style="color:#a6e22e">view</span> <span style="color:#f92672">/&gt;</span>
