@@ -4,6 +4,7 @@ languageCode = "en-us"
 theme = "ananke"
 
 
+
 DefaultContentLanguage = "en"
 SectionPagesMenu = "main"
 Paginate = 3 # this is set low for demonstrating with dummy content. Set to a higher number
@@ -30,7 +31,7 @@ enableRobotsTXT = true
   mastodon = ""
   slack = ""
   stackoverflow = ""
-  rss = ""
+  rss = "https://edanisko.com/index.xml"
   # choose a background color from any on this page: http://tachyons.io/docs/themes/skins/ and preface it with "bg-"
   background_color_class = "bg-near-black"
   featured_image = "/images/rsz_jesus-kiteque-wn-kyahwcis-unsplash.jpg"

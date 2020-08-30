@@ -1,7 +1,7 @@
 ---
 title: 'Quasar Queries'
 date: 2020-08-05T22:45:54-08:00
-author: ed.anisko@gmail.com
+author: Ed Anisko
 layout: post
 categories:
   - Quasar

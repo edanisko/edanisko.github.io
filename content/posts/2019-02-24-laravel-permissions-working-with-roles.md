@@ -1,7 +1,7 @@
 ---
 title: 'Laravel Permissions - Working with Roles'
 date: 2019-02-24T23:00:55-08:00
-author: ed.anisko@gmal.com
+author: Ed Anisko
 layout: post
 guid: https://edanisko.com/?p=23
 permalink: /laravel-permissions-working-with-roles/

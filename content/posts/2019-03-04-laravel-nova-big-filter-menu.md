@@ -2,7 +2,7 @@
 id: 79
 title: 'Laravel Nova - Big Filter Menu'
 date: 2019-03-04T22:45:54-08:00
-author: ed.anisko@gmail.com
+author: Ed Anisko
 layout: post
 guid: https://edanisko.com/?p=79
 permalink: /laravel-nova-big-filter-menu/
