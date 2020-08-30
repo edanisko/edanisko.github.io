@@ -3,7 +3,7 @@ baseURL = "https://edanisko.com"
 languageCode = "en-us"
 theme = "ananke"
 
-
+disqusShortname = "edanisko"
 
 DefaultContentLanguage = "en"
 SectionPagesMenu = "main"
