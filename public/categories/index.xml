@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on EdAnisko.com</title>
+    <link>https://edanisko.com/categories/</link>
+    <description>Recent content in Categories on EdAnisko.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Aug 2020 22:45:54 -0800</lastBuildDate>
+    
+	<atom:link href="https://edanisko.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Node</title>
+      <link>https://edanisko.com/categories/node/</link>
+      <pubDate>Wed, 05 Aug 2020 22:45:54 -0800</pubDate>
+      
+      <guid>https://edanisko.com/categories/node/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Quasar</title>
+      <link>https://edanisko.com/categories/quasar/</link>
+      <pubDate>Wed, 05 Aug 2020 22:45:54 -0800</pubDate>
+      
+      <guid>https://edanisko.com/categories/quasar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Setup</title>
+      <link>https://edanisko.com/categories/setup/</link>
+      <pubDate>Wed, 05 Aug 2020 22:45:54 -0800</pubDate>
+      
+      <guid>https://edanisko.com/categories/setup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Laravel</title>
+      <link>https://edanisko.com/categories/laravel/</link>
+      <pubDate>Mon, 04 Mar 2019 22:45:54 -0800</pubDate>
+      
+      <guid>https://edanisko.com/categories/laravel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nova</title>
+      <link>https://edanisko.com/categories/nova/</link>
+      <pubDate>Mon, 04 Mar 2019 22:45:54 -0800</pubDate>
+      
+      <guid>https://edanisko.com/categories/nova/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Packages</title>
+      <link>https://edanisko.com/categories/packages/</link>
+      <pubDate>Mon, 04 Mar 2019 22:45:54 -0800</pubDate>
+      
+      <guid>https://edanisko.com/categories/packages/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
