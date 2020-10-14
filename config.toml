@@ -20,7 +20,7 @@ enableRobotsTXT = true
 [params]
   favicon = "/images/favicon.ico"
   site_logo = ""
-  description = "Be Yourself - Without a Net."
+  description = "Without a Net."
   facebook = "https://www.facebook.com/eddieainla"
   twitter = "https://twitter.com/eddieanisko"
   instagram = ""
