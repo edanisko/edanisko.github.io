@@ -1,8 +1,10 @@
 ---
-title: 'Quasar Queries'
+title: 'Adding Alpaca API to Quasar with VueJS'
 date: 2020-08-05T22:45:54-08:00
 author: Ed Anisko
 layout: post
+aliases:
+    - /posts/2020-08-05-quasar-queries/
 categories:
   - Quasar
   - Node
@@ -14,42 +16,35 @@ tags:
   - apps 
   - quasar    
 ---
-Adding alpaca api to a node project so I can buy a share of QQQ or AAPL. 
+Its easy enough to use the alpaca CLI in a flat js file.  Next step is to add it to an application, add a few buttons and make it do something. 
 
-Its easy enough to use the alpaca CLI in a flat js file.  Next step is to add it to an application, add a few buttons and so on. 
+
+Objective: Add the Alpaca API to a Quasar VueJS project then buy a share of QQQ. 
+
 
 <!--more-->
 
-Searched for:
-- installing other packages into quasar
-  - https://quasar.dev/app-extensions/development-guide/introduction#Handling-package-dependencies
-  - no
-
-- using other packages with quasar
-  - https://forum.quasar-framework.org/topic/3597/importing-and-using-external-js-libraries-in-quasar
-  - https://quasar.dev/app-extensions/tips-and-tricks/provide-a-directive
 
 Read the code, specifically the comments in the .quasar folder.  They point to setting up a boot directive.   A link in the comments points to:
-- https://quasar.dev/quasar-cli/cli-documentation/boot-files#Anatomy-of-a-boot-file
-- 404
+- https://quasar.dev/quasar-cli/boot-files#Anatomy-of-a-boot-file
 
-Searched quasar site for boot finally find:
+Found this article about adding axios.
+- https://medium.com/quasar-framework/adding-axios-to-quasar-dbe094863728
 
-https://quasar.dev/quasar-cli/boot-files#Anatomy-of-a-boot-file
 
-A little more digging turend up:
+Go to your Quasar application folder.
 
-https://medium.com/quasar-framework/adding-axios-to-quasar-dbe094863728
+Set up axios according to the post above.
 
-The idea finally clicked.
-
-In terminal type:
+The setup Alpaca API.
 
 ```sh
-$ quasar new boot alpaca-api      
+$ npm install axios --save
+$ npm install --save @alpacahq/alpaca-trade-api    
 ```
 
 This creates /boot/alpaca-api.js
+Add the following code to that file.  Change teh keys to your own Alpaca keys.
 
 ```js
 const Alpaca = require('@alpacahq/alpaca-trade-api')
@@ -102,7 +97,7 @@ export default {
 </script>
 ```
 
+If done correcly, the log will show your account information.  Take a look at the other commands available in the Alpaca nods SDK.
 
-
-Looks like its working.
+https://github.com/alpacahq/alpaca-trade-api-js/
 

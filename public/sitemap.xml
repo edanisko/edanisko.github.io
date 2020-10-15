@@ -3,6 +3,104 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://edanisko.com/shortcuts/</loc>
+    <lastmod>2020-10-12T12:55:37-07:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edanisko.com/tags/aws/</loc>
+    <lastmod>2020-09-30T20:47:51-08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edanisko.com/categories/</loc>
+    <lastmod>2020-09-30T20:47:51-08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edanisko.com/</loc>
+    <lastmod>2020-09-30T20:47:51-08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edanisko.com/tags/data/</loc>
+    <lastmod>2020-09-30T20:47:51-08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edanisko.com/categories/data-modeling/</loc>
+    <lastmod>2020-09-30T20:47:51-08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edanisko.com/categories/dynamodb/</loc>
+    <lastmod>2020-09-30T20:47:51-08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edanisko.com/tags/dynamodb/</loc>
+    <lastmod>2020-09-30T20:47:51-08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edanisko.com/posts/2020-09-30-dynamodb-what-you-need-to-know/</loc>
+    <lastmod>2020-09-30T20:47:51-08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edanisko.com/tags/modeling/</loc>
+    <lastmod>2020-09-30T20:47:51-08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edanisko.com/categories/node/</loc>
+    <lastmod>2020-09-30T20:47:51-08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edanisko.com/tags/node/</loc>
+    <lastmod>2020-09-30T20:47:51-08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edanisko.com/posts/</loc>
+    <lastmod>2020-09-30T20:47:51-08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edanisko.com/tags/</loc>
+    <lastmod>2020-09-30T20:47:51-08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://edanisko.com/tags/api/</loc>
     <lastmod>2020-08-05T22:45:54-08:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -11,41 +109,6 @@
   
   <url>
     <loc>https://edanisko.com/tags/apps/</loc>
-    <lastmod>2020-08-05T22:45:54-08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://edanisko.com/</loc>
-    <lastmod>2020-08-05T22:45:54-08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://edanisko.com/categories/</loc>
-    <lastmod>2020-08-05T22:45:54-08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://edanisko.com/categories/node/</loc>
-    <lastmod>2020-08-05T22:45:54-08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://edanisko.com/tags/node/</loc>
-    <lastmod>2020-08-05T22:45:54-08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://edanisko.com/posts/</loc>
     <lastmod>2020-08-05T22:45:54-08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -67,13 +130,6 @@
   
   <url>
     <loc>https://edanisko.com/posts/2020-08-05-quasar-queries/</loc>
-    <lastmod>2020-08-05T22:45:54-08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://edanisko.com/tags/</loc>
     <lastmod>2020-08-05T22:45:54-08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

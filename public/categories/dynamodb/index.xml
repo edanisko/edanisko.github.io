@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DynamoDB on EdAnisko.com</title>
+    <link>https://edanisko.com/categories/dynamodb/</link>
+    <description>Recent content in DynamoDB on EdAnisko.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Sep 2020 20:47:51 -0800</lastBuildDate>
+    
+	<atom:link href="https://edanisko.com/categories/dynamodb/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DynamoDB - What You Need to Know</title>
+      <link>https://edanisko.com/posts/2020-09-30-dynamodb-what-you-need-to-know/</link>
+      <pubDate>Wed, 30 Sep 2020 20:47:51 -0800</pubDate>
+      
+      <guid>https://edanisko.com/posts/2020-09-30-dynamodb-what-you-need-to-know/</guid>
+      <description>&lt;p&gt;DynamoDB lets you scale indefinately while maintaining single digit millisecond response times.  If you need to read that again go ahead but I&amp;rsquo;ll break it down again.  With DynamoDB you can store as much structured data as you like.  Your queries will always return lighting fast.  If that sounds different that what you data team has been telling you, send them a link to this post.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

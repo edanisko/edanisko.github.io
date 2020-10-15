@@ -1,20 +1,19 @@
 ---
-title: 'DynamoDB - What You Need to Know'
-draft: true
-date: 2020-10-30T20:47:51-08:00
+title: 'Aurora Serverless - How Cold is a Cold Start'
+date: 2020-10-09T20:47:51-08:00
 author: Ed Anisko
+draft: true
 layout: post
 categories:
-  - Aurora Serverless
-  - Cold Starts
+  - Aurora
+  - Serverless
   - AWS
 tags:
   - aurora 
   - serverless 
-  - 'code start'
   - php 
   - api
-  - laravel  
+  - laravel    
 ---
 # How cold are aurora serverless cold starts?
 

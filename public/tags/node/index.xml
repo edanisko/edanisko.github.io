@@ -6,10 +6,19 @@
     <description>Recent content in node on EdAnisko.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Aug 2020 22:45:54 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2020 20:47:51 -0800</lastBuildDate>
     
 	<atom:link href="https://edanisko.com/tags/node/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DynamoDB - What You Need to Know</title>
+      <link>https://edanisko.com/posts/2020-09-30-dynamodb-what-you-need-to-know/</link>
+      <pubDate>Wed, 30 Sep 2020 20:47:51 -0800</pubDate>
+      
+      <guid>https://edanisko.com/posts/2020-09-30-dynamodb-what-you-need-to-know/</guid>
+      <description>&lt;p&gt;DynamoDB lets you scale indefinately while maintaining single digit millisecond response times.  If you need to read that again go ahead but I&amp;rsquo;ll break it down again.  With DynamoDB you can store as much structured data as you like.  Your queries will always return lighting fast.  If that sounds different that what you data team has been telling you, send them a link to this post.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Quasar Queries</title>

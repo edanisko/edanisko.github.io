@@ -6,15 +6,33 @@
     <description>Recent content in Categories on EdAnisko.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Aug 2020 22:45:54 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2020 20:47:51 -0800</lastBuildDate>
     
 	<atom:link href="https://edanisko.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Data Modeling</title>
+      <link>https://edanisko.com/categories/data-modeling/</link>
+      <pubDate>Wed, 30 Sep 2020 20:47:51 -0800</pubDate>
+      
+      <guid>https://edanisko.com/categories/data-modeling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DynamoDB</title>
+      <link>https://edanisko.com/categories/dynamodb/</link>
+      <pubDate>Wed, 30 Sep 2020 20:47:51 -0800</pubDate>
+      
+      <guid>https://edanisko.com/categories/dynamodb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Node</title>
       <link>https://edanisko.com/categories/node/</link>
-      <pubDate>Wed, 05 Aug 2020 22:45:54 -0800</pubDate>
+      <pubDate>Wed, 30 Sep 2020 20:47:51 -0800</pubDate>
       
       <guid>https://edanisko.com/categories/node/</guid>
       <description></description>
