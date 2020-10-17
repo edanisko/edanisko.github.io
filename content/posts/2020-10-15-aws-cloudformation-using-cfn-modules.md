@@ -1,13 +1,12 @@
 ---
 title: 'AWS CloudFormation Using CFN-Modules'
-date: 2020-10-16T20:47:51-08:00
+date: 2020-10-15T20:47:51-08:00
 author: Ed Anisko
 layout: post
-draft: false
 categories:
-  - PHP
-  - Docker
-  - Fargate
+  - CloudFormation
+  - AWS
+  - CFN-Modules
 ---
 # 
 
