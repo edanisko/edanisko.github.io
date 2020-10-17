@@ -39,8 +39,9 @@ Set up axios according to the post above.
 The setup Alpaca API.
 
 ```sh
-$ npm install axios --save
 $ npm install --save @alpacahq/alpaca-trade-api    
+$ quasar new boot axios
+
 ```
 
 This creates /boot/alpaca-api.js
