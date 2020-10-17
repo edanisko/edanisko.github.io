@@ -18,7 +18,7 @@ If you have used CloudFormation you know how vast it is.  You can run just about
 
 For instance, it is best practice to use a VPC when you are building your environement in AWS.  Its also best practice create a new VPC and leave the default VPC alone.  You can you use the VPC wizard in the UI, but that doesn't give you something easily repeatable.  
 
-In the cfn-modules that best practice turns into a requirement.  There are modules for all sorts of AWS services.  The modules contain variables, some are optional and some are required.  Almost modules have a VPC requirement.  Each script will build that VPC as a nested stack using some other cfn-module.  
+In the cfn-modules that best practice turns into a requirement.  There are modules for all sorts of AWS services.  The modules contain variables, some are optional and some are required.  Most modules have a VPC requirement.  Each script will build that required VPC as a nested stack using some other cfn-module.  
 
 With cfn-modules you will be creating your own CloudFormation template just like normal.  Except with cfn-modules you will be adding modules to a project via NPM and then using the TemplateURL parameter to reference the module inside your script.
 
@@ -45,7 +45,7 @@ package.json
   }
 }
 ```
-
+Add the VPC module
 ```sh
 npm i @cfn-modules/vpc
 ```
@@ -93,11 +93,11 @@ You can watch this empty VPC get created in the UI.  When its finished you will 
 
 Your template creates a nested stack called Vpc. Then the nesting continues. Vpc creates vpc-plain.  Vpc-plain creates other VPC level resources such as an internet gateway.  Six subnets are created, three public and three private.  The subnet resources include NACLs, route tables and routes. 
 
-The best part is that you can repeat this is another region, another account.  This is infrastucture as code.
+The best part is that you can repeat this is another region, another account.  This is repeatable infrastucture as code.
 
 ## Changes
 
-If you want to add a service endpoint, change the template, re-package it and re-deploy.
+If you want to add a service endpoint, change the template, re-package and re-deploy.
 
 
 template.yaml
@@ -128,11 +128,11 @@ When this is finished you will see a new S3 service endpoint has been added to t
 
 ![Updated VPC UI](/img/updated-vpc-ui.png)
 
-The cfn-modules include scripts for advanced infrastructure configurations like FlowLogs, ECS, Fargate, Lambda, and Serverless Aurora. You can add and iterate on your original template to get the infrastructure exactly how you want it.
-
-Check out the cfn-modules in [here](https://github.com/cfn-modules/docs).
+The cfn-modules include scripts for advanced infrastructure configurations like FlowLogs, ECS, Fargate, Lambda, and Serverless Aurora. You can add and iterate on your original template to get the infrastructure exactly how you need it.
 
 Don't forget to delete the VPC when you are finished.
 ```
 aws cloudformation delete-stack --stack-name empty-vpc
 ```
+
+Check out the cfn-modules in [here](https://github.com/cfn-modules/docs).
