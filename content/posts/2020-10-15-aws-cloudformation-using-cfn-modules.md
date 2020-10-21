@@ -16,7 +16,7 @@ Adding infrastructure as code to a project? The cfn-modules repositories are pre
 
 If you have used CloudFormation you know how vast it is.  You can run just about anything you can setup in the AWS console in using a CloudFormation script.  Even more in some cases.  That's every switch and  toggle, permission, input box... everything.  It's a lot.  CFN-modules try to standardize that against AWS best practices.  
 
-For instance, it is best practice to use a VPC when you are building your environement in AWS.  Its also best practice create a new VPC and leave the default VPC alone.  You can you use the VPC wizard in the UI, but that doesn't give you something easily repeatable.  
+For instance, it is best practice to use a VPC when you are building your environement in AWS.  Its also best practice create a new VPC and leave the default VPC alone.  You can use the VPC wizard in the UI, but that doesn't give you something easily repeatable.  
 
 In the cfn-modules that best practice turns into a requirement.  There are modules for all sorts of AWS services.  The modules contain variables, some are optional and some are required.  Most modules have a VPC requirement.  Each script will build that required VPC as a nested stack using some other cfn-module.  
 
