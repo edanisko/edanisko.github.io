@@ -6,33 +6,42 @@
     <description>Recent content in Categories on EdAnisko.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Sep 2020 20:47:51 -0800</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2020 20:47:51 -0800</lastBuildDate>
     
 	<atom:link href="https://edanisko.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Data Modeling</title>
-      <link>https://edanisko.com/categories/data-modeling/</link>
-      <pubDate>Wed, 30 Sep 2020 20:47:51 -0800</pubDate>
+      <title>AWS</title>
+      <link>https://edanisko.com/categories/aws/</link>
+      <pubDate>Thu, 15 Oct 2020 20:47:51 -0800</pubDate>
       
-      <guid>https://edanisko.com/categories/data-modeling/</guid>
+      <guid>https://edanisko.com/categories/aws/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>DynamoDB</title>
-      <link>https://edanisko.com/categories/dynamodb/</link>
-      <pubDate>Wed, 30 Sep 2020 20:47:51 -0800</pubDate>
+      <title>CFN-Modules</title>
+      <link>https://edanisko.com/categories/cfn-modules/</link>
+      <pubDate>Thu, 15 Oct 2020 20:47:51 -0800</pubDate>
       
-      <guid>https://edanisko.com/categories/dynamodb/</guid>
+      <guid>https://edanisko.com/categories/cfn-modules/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CloudFormation</title>
+      <link>https://edanisko.com/categories/cloudformation/</link>
+      <pubDate>Thu, 15 Oct 2020 20:47:51 -0800</pubDate>
+      
+      <guid>https://edanisko.com/categories/cloudformation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Node</title>
       <link>https://edanisko.com/categories/node/</link>
-      <pubDate>Wed, 30 Sep 2020 20:47:51 -0800</pubDate>
+      <pubDate>Wed, 05 Aug 2020 22:45:54 -0800</pubDate>
       
       <guid>https://edanisko.com/categories/node/</guid>
       <description></description>
