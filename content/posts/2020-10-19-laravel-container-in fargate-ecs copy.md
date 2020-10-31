@@ -85,7 +85,7 @@ Zend Engine v3.4.0, Copyright (c) Zend Technologies
 exit
 ```
 
-This step is complete.  This container has all that is needed to create, edit and run a tutorialized, dockerized version of Laravel.
+This step is complete.  This container has all that is needed to create, edit and run a tutorialized, dockerized version of Laravel Jetstream.
 
 ---
 
@@ -164,22 +164,297 @@ DB_CONNECTION=sqlite
 
 Next create a new, empty file named database.sqlite in the database directory of the Laravel project. 
 ```
-/phplaravel/laravel/app/database/database.sqlite
+touch /phplaravel/laravel/database/database.sqlite
 ```
 
 Back in the terminal of the docker instance migrate the database.  Then, serve the project.
 ```
 php artisan migrate
 
-php artisan serve
+php artisan serve --port 8888 --host 0.0.0.0
 ```
 
-Open your browser and play around with Jetstream. <a href="http://localhost:8888/dashboard" target="_blank">Click</a>
+Open your browser and play around with you local docker dev version of Jetstream. <a href="http://localhost:8888" target="_blank">Click</a>
+
+Configure Jetstream according to their docs. <a href="https://jetstream.laravel.com/" target="_blank">Jetstream</a>
+
+Pretty good right?
+
+CTRL-C to turn off your server or open another terminal to continue working inside docker. All composer packages and npm packages should be added inside the container.
+
+```
+docker exec -it phplaravel-container bash
+```
 
 ---
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.
+
+.
+
+.
+
+
+
+
+
+
+
+
 ### Create A Production Ready Image
+
+Making a production ready image is going to coincide with the creation of a production architecure.  To define a split between development and production. Make a prod directory inside the infra directory. Create the following files.
+
+template.yml
+```yml
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'cfn-modules: Fargate ALB to single container example'
+Resources:
+  Alerting:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        Email: 'email@domain.com' # replace with your email address to receive alerts
+        # HttpsEndpoint: 'https://api.marbot.io/v1/endpoint/xyz' # or uncommnet and receive alerts in Slack or Microsoft Teams using marbot.io
+      TemplateURL: './node_modules/@cfn-modules/alerting/module.yml'
+  Key:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/kms-key/module.yml'
+  DatabaseSecret:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        KmsKeyModule: !GetAtt 'Key.Outputs.StackName'
+        Description: !Sub '${AWS::StackName}: database password'
+      TemplateURL: './node_modules/@cfn-modules/secret/module.yml'      
+  Vpc:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+        S3Endpoint: 'false' # speed up the example
+        DynamoDBEndpoint: 'false' # speed up the example
+        FlowLog: 'false' # speed up the example
+        NatGateways: 'false' # speed up the example
+      TemplateURL: './node_modules/@cfn-modules/vpc/module.yml'
+  #############################################################################
+  #                                                                           #
+  #                               DynamoDB Cache                              #
+  #                                                                           #
+  #############################################################################  
+  LaravelCache:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        PartitionKeyName: id # optional
+        PartitionKeyType: S # optional
+        BillingAndScalingMode: PROVISIONED # optional
+        MaxWriteCapacityUnits: '1' # optional
+        MinWriteCapacityUnits: '1' # optional
+        WriteCapacityUnitsUtilizationTarget: '80' # optional
+        MaxReadCapacityUnits: '1' # optional
+        MinReadCapacityUnits: '1' # optional
+        ReadCapacityUnitsUtilizationTarget: '80' # optional
+        StreamViewType: DISABLED # optional
+        BackupRetentionPeriod: '30' # optional            
+      TemplateURL: './node_modules/@cfn-modules/dynamodb-table/module.yml'
+  
+  #############################################################################
+  #                                                                           #
+  #                      RDS Auroa Serverless resources                       #
+  #                                                                           #
+  #############################################################################      
+  AuroraServerlessClientSg:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/client-sg/module.yml'
+  AuroraServerlessCluster:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        ClientSgModule: !GetAtt 'AuroraServerlessClientSg.Outputs.StackName'
+        KmsKeyModule: !GetAtt 'Key.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+        SecretModule: !GetAtt 'DatabaseSecret.Outputs.StackName'
+        DBName: laravel
+        DBMasterUsername: master
+        AutoPause: 'true'
+        SecondsUntilAutoPause: '900'
+        MinCapacity: '1'
+        MaxCapacity: '2'
+        EngineVersion: '5.7.mysql-aurora.2.07.1'
+      TemplateURL: './node_modules/@cfn-modules/rds-aurora-serverless/module.yml'      
+  #############################################################################
+  #                                                                           #
+  #                   Application load balancer resources                     #
+  #                                                                           #
+  #############################################################################      
+  Alb:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/alb/module.yml'
+  AlbListener:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        AlbModule: !GetAtt 'Alb.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/alb-listener/module.yml'
+  LaravelTarget:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        AlbModule: !GetAtt 'Alb.Outputs.StackName'
+        AlbListenerModule: !GetAtt 'AlbListener.Outputs.StackName'
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/ecs-alb-target/module.yml'
+  #############################################################################
+  #                                                                           #
+  #                         ECS / Fargate resources                           #
+  #                                                                           #
+  #############################################################################    
+  Cluster:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      TemplateURL: './node_modules/@cfn-modules/ecs-cluster/module.yml'    
+  LaravelService:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        ClusterModule: !GetAtt 'Cluster.Outputs.StackName'
+        TargetModule: !GetAtt 'LaravelTarget.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+        ClientSgModule1: !GetAtt 'AuroraServerlessClientSg.Outputs.StackName'
+        ProxyImage: !Ref ProxyImage
+        ProxyPort: '80'
+        AppImage: !Ref AppImage
+        AppPort: '8000'
+        AppEnvironment1Key: 'DATABASE_PASSWORD'
+        AppEnvironment1SecretModule: !GetAtt 'DatabaseSecret.Outputs.StackName'
+        AppEnvironment2Key: 'DATABASE_HOST'
+        AppEnvironment2Value: !GetAtt 'AuroraServerlessCluster.Outputs.DnsName'
+        AppEnvironment3Key: 'DATABASE_NAME'
+        AppEnvironment3Value: 'laravel'
+        AppEnvironment4Key: 'DATABASE_USER'
+        AppEnvironment4Value: 'master'
+        Cpu: '0.25'
+        Memory: '0.5'
+        DesiredCount: '2'
+        MaxCapacity: '4'
+        MinCapacity: '2'
+        LogsRetentionInDays: '14'
+      TemplateURL: './node_modules/@cfn-modules/fargate-service/module.yml'
+Outputs:
+  Url:
+    Value: !Sub 'http://${Alb.Outputs.DnsName}'
+```
+
+package.json
+```javascript
+{
+  "dependencies": {
+    "@cfn-modules/alb": "^1.0.4",
+    "@cfn-modules/alb-listener": "^1.2.0",
+    "@cfn-modules/alerting": "^1.2.1",
+    "@cfn-modules/client-sg": "^1.0.0",
+    "@cfn-modules/dynamodb-table": "^1.6.0",
+    "@cfn-modules/ecs-alb-target": "^1.3.0",
+    "@cfn-modules/ecs-cluster": "^1.1.0",
+    "@cfn-modules/fargate-service": "^2.8.0",
+    "@cfn-modules/kms-key": "^1.2.1",
+    "@cfn-modules/rds-aurora-serverless": "^1.6.0",
+    "@cfn-modules/secret": "^1.3.0",
+    "@cfn-modules/vpc": "^1.3.0"
+  }
+}
+```
+
+The template is using cfn-modules to control the cloudformation build. Use npm to install the template dependencies.
+
+```
+npm i
+```
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -195,71 +470,6 @@ docker run --name phplaravel-container  -t -d phplaravel
 docker exec -it phplaravel-container bash 
 ```
 
-Go ahead and build an image.  Start a container, name it something useful. Then login using the following commands.
-
-
-
-First we destroyed the running container.  Then rebuild the latest image of phplarvel, started a new container and started a terminal window logged in as root.  Let's see if composer is working.
-
-```
-# composer
-   ______
-  / ____/___  ____ ___  ____  ____  ________  _____
- / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
-/ /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
-\____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
-                    /_/
-Composer version 1.10.13 2020-09-09 11:46:34
-
-```
-
-## Development
-We have Docker and PHP setup with Composer.  We want to be able to run composer inside of the docker container,
-then save those files into a git repository.  We could do this in a few ways.  The first way is login to the docker container and setup the git inside.  Then you can push the code out to GitHub and bring it back into your local machine, add the docker files then start copying the git repo back into docker in your build steps later on.  
-
-The second way is to give docker access to a directory that it shares with your local system.  
-
-This is the chicken and the egg part.  We want to create our files using the docker container but have then available to ouyr local system. To do this we will start docker using the --volume flag.
-
-```
-docker run --volume $(pwd):/root/phplaravel --name phplaravel-container -p 8000:8000 -t -d phplaravel
-
-# or in windows
-
-docker run --volume //c/Users/username/phplaravel:/root/phplaravel --name phplaravel-container  -t -d phplaravel
-```
-
-Now lets install Laravel inside the container.
-
-```sh
-$ cd /phplaravel
-
-$ composer create-project --prefer-dist laravel/laravel app
-
-Creating a "laravel/laravel" project at "./app"
-Installing laravel/laravel (v8.1.0)
-...
-```
-
-If you are editing your DockerFile in an IDE you will see the new app folder in your local phplaravel directory. 
-
-```
-$ cd phplaravel/app
-$ php artisan serve --port 8888 --host 0.0.0.0
-```
-
-In your browser goto http://localhost:8888/ and laravel is running inside your container and exposed to the real world.
-
-Let's make a change to the welcome blade so we know its working like we think. 
-
-app/resources/views/welcome.blade.php
-```
-Laravel Container - Local Development Server
-```
-
-Save it and refresh your browser.  You should see something like the image below.
- 
-![Updated VPC UI](../img/fargate-ecs-1.png)
 
 
 ## Fargate

@@ -14,3 +14,16 @@ $ rm -rf /docs && HUGO_ENV=production hugo -d docs --minify
 ## AWS SSO Login
 
 https://edanisko.awsapps.com/login/
+
+## Docker
+
+```
+docker rm phplaravel-container -f
+
+docker build -t phplaravel:latest -f Dockerfile .
+
+docker run --name phplaravel-container  -t -d phplaravel
+
+docker exec -it phplaravel-container bash 
+```
+
