@@ -1,7 +1,6 @@
 ---
 title: 'Laravel Development in Docker'
-draft: false
-date: 2020-11-27T00:00:00-08:00
+date: 2020-11-26T00:00:00-08:00
 author: Ed Anisko
 layout: post
 categories:
