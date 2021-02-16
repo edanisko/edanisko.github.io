@@ -12,7 +12,7 @@ categories:
 ---
 There's a lot of PHP code out there.  Wordpress, Drupal, Zend, Laravel.  These are just a few of the untold endless frameworks.  Even so, PHP has conspicuously been left out of the buzzword rich, serverless revolution.  Today's PHP developer might be asking, am I the last. A remaining holdout of a simpler, more complicated time.  Maybe.  Surely the last ALGOL developer questioned the end, before it came.
 
-Still there is a lot more PHP code out there than ALGOL, I'm guessing.  PHP code has to go somewhere.  Cramming it into a Lambda function is too messy.  There's always Docker.  Docker is pretty great.  But up until recently, Docker, in real life, meant managing a cluster.  Managing a docker cluster is not great.   AWS Fargate ECS removes the cluster pain and makes Docker, serverless.
+Still there is a lot more PHP code out there than ALGOL, I'm guessing.  PHP code has to go somewhere.  Cramming it into a Lambda function is too messy.  There's always Docker.  Docker is pretty great.  But up until recently, Docker, in production, meant managing a cluster.  Managing a docker cluster is not great.   AWS Fargate ECS removes the cluster pain and makes Docker, serverless.
 
 Follow along to create a Laravel Jetstream installation working locally inside a Docker container.  Later you can push the image to ECS, then get up and running in Fargate.
 
@@ -45,7 +45,7 @@ Create a new directory for your project and move into it.
 ```sh
 cd ~/ && mkdir phplaravel && cd phplaravel
 ```
-TFor instance, this command will create a directory in the home folder for the logged in account and name it phplaravel.  Create an infrastructure directory within to keep infra code separated from app code.  Call the directory infra for short. 
+For instance, this command will create a directory in the home folder for the logged in account and name it phplaravel.  Create an infrastructure directory within to keep infra code separated from app code.  Call the directory infra for short. 
 
 Inside the infra directory create a file named Dockerfile. The tree stucture so far looks like this. 
 
@@ -68,7 +68,7 @@ FROM composer
 RUN apk update && apk add nodejs npm
 ```
 
-Easier than it looks right? The Dockerfile will start off using the latest composer container provided in the docker containter repository.  Next it installs a few packages that Laravel will need to run.  
+Easier than you think, right? The Dockerfile will start off using the latest composer container provided in the docker containter repository.  Next it installs a few packages that Laravel will need to run.  
 
 
 
@@ -104,9 +104,9 @@ This step is complete.  This container has all that is needed to create, edit an
 
 ### Create a Laravel Project in Docker
 
-The image is capable of running a dev version of Laravel.  This is a pared down, no frills version of Laravel but it works.  It leans on Laravel's brilliant use of adapters to maintain dev - prod parity.  
+The image is capable of running a dev version of Laravel.  This is a pared down, no frills version of Laravel but it works.  It leans on Laravel's brilliant use of adapters to maintain <a href="https://12factor.net/dev-prod-parity" target="_blank">dev - prod parity</a>.
 
-Follow along to create  Laravel project on the host disk drive, that can be edited and run inside the container.
+Follow along to create a Laravel project on the host disk drive, that can be edited and run inside the container.
 
 
 ```
@@ -144,7 +144,7 @@ php artisan jetstream:install inertia --teams
 npm install && npm run dev
 ```
 
-On the host machine there will be a new directory named **laravel**.  Make changes in this directory and those changes will be present inside the docker container.  This is a working dev version of Laravel Jetstream.  
+On the host machine there will be a new directory named **laravel**.  Make changes with your editor in this directory and those changes will be present inside the docker container.  This is a working dev version of Laravel Jetstream.  
 
 ```sh
 phplaravel
@@ -181,7 +181,7 @@ Next create a new, empty file named database.sqlite in the database directory of
 touch /phplaravel/laravel/database/database.sqlite
 ```
 
-Back in the terminal of the docker instance migrate the database.  Then, serve the project.
+Back in the terminal insode of the docker instance migrate the database.  Then, serve the project.
 ```
 php artisan migrate
 
@@ -196,7 +196,7 @@ Pretty good right?
 
 CTRL-C to turn off your server or open another terminal to continue working inside docker. All composer packages and npm packages should be added inside the container.
 
-This command conects back to the server.
+This command connects back to the docker container from the terminal.
 
 ```
 docker exec -it phplaravel-container bash
