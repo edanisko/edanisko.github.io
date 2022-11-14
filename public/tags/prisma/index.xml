@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>prisma on EdAnisko.com</title>
+    <link>https://edanisko.com/tags/prisma/</link>
+    <description>Recent content in prisma on EdAnisko.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Feb 2019 23:00:55 -0800</lastBuildDate><atom:link href="https://edanisko.com/tags/prisma/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NextJS - Supabase - Prisma</title>
+      <link>https://edanisko.com/posts/2022-11-11-nextjs-supabase-firehost-prisma/</link>
+      <pubDate>Sun, 24 Feb 2019 23:00:55 -0800</pubDate>
+      
+      <guid>https://edanisko.com/posts/2022-11-11-nextjs-supabase-firehost-prisma/</guid>
+      <description>** Making a Free NextJS Front-end, SQL back-end with Migrations **
+Is PHP Dead? It&amp;rsquo;s everywhere on the internet. Didn&amp;rsquo;t the know it all managers learn their lesson from Ruby on Rails. It&amp;rsquo;s gone. Dead. Latin. Spotify and Netflix are using it. But they are the only companies that can afford to hire a Ruby dev.
+Ruby was a flash in the pan. I did like Rails. Which Laravel stole from heavily and I love me some Laravel.</description>
+    </item>
+    
+  </channel>
+</rss>

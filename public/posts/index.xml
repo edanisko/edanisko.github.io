@@ -6,10 +6,16 @@
     <description>Recent content in Posts on EdAnisko.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Oct 2020 20:47:51 -0800</lastBuildDate>
-    
-	<atom:link href="https://edanisko.com/posts/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Thu, 26 Nov 2020 00:00:00 -0800</lastBuildDate><atom:link href="https://edanisko.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Laravel Development in Docker</title>
+      <link>https://edanisko.com/posts/2020-11-27-laravel-development-in-docker/</link>
+      <pubDate>Thu, 26 Nov 2020 00:00:00 -0800</pubDate>
+      
+      <guid>https://edanisko.com/posts/2020-11-27-laravel-development-in-docker/</guid>
+      <description>There&amp;rsquo;s a lot of PHP code out there. Wordpress, Drupal, Zend, Laravel. These are just a few of the untold endless frameworks. Even so, PHP has conspicuously been left out of the buzzword rich, serverless revolution. Today&amp;rsquo;s PHP developer might be asking, am I the last. A remaining holdout of a simpler, more complicated time. Maybe. Surely the last ALGOL developer questioned the end, before it came.
+Still there is a lot more PHP code out there than ALGOL, I&amp;rsquo;m guessing.</description>
+    </item>
     
     <item>
       <title>AWS CloudFormation Using CFN-Modules</title>
@@ -48,6 +54,17 @@
       <guid>https://edanisko.com/posts/2019-02-24-laravel-permissions-working-with-roles/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Install the Package&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Laravel has a way of authorizing a user to act on an object. Please read the &lt;a href=&#34;https://laravel.com/docs/master/authorization&#34;&gt;docs&lt;/a&gt; if you like. You will start off writing Gates. Gates allow and deny access to actions. You can define Gate&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>NextJS - Supabase - Prisma</title>
+      <link>https://edanisko.com/posts/2022-11-11-nextjs-supabase-firehost-prisma/</link>
+      <pubDate>Sun, 24 Feb 2019 23:00:55 -0800</pubDate>
+      
+      <guid>https://edanisko.com/posts/2022-11-11-nextjs-supabase-firehost-prisma/</guid>
+      <description>** Making a Free NextJS Front-end, SQL back-end with Migrations **
+Is PHP Dead? It&amp;rsquo;s everywhere on the internet. Didn&amp;rsquo;t the know it all managers learn their lesson from Ruby on Rails. It&amp;rsquo;s gone. Dead. Latin. Spotify and Netflix are using it. But they are the only companies that can afford to hire a Ruby dev.
+Ruby was a flash in the pan. I did like Rails. Which Laravel stole from heavily and I love me some Laravel.</description>
     </item>
     
   </channel>

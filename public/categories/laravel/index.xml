@@ -6,10 +6,16 @@
     <description>Recent content in Laravel on EdAnisko.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Mar 2019 22:45:54 -0800</lastBuildDate>
-    
-	<atom:link href="https://edanisko.com/categories/laravel/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Thu, 26 Nov 2020 00:00:00 -0800</lastBuildDate><atom:link href="https://edanisko.com/categories/laravel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Laravel Development in Docker</title>
+      <link>https://edanisko.com/posts/2020-11-27-laravel-development-in-docker/</link>
+      <pubDate>Thu, 26 Nov 2020 00:00:00 -0800</pubDate>
+      
+      <guid>https://edanisko.com/posts/2020-11-27-laravel-development-in-docker/</guid>
+      <description>There&amp;rsquo;s a lot of PHP code out there. Wordpress, Drupal, Zend, Laravel. These are just a few of the untold endless frameworks. Even so, PHP has conspicuously been left out of the buzzword rich, serverless revolution. Today&amp;rsquo;s PHP developer might be asking, am I the last. A remaining holdout of a simpler, more complicated time. Maybe. Surely the last ALGOL developer questioned the end, before it came.
+Still there is a lot more PHP code out there than ALGOL, I&amp;rsquo;m guessing.</description>
+    </item>
     
     <item>
       <title>Laravel Nova - Big Filter Menu</title>

@@ -6,10 +6,16 @@
     <description>Recent content in Coder on EdAnisko.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Oct 2020 20:47:51 -0800</lastBuildDate>
-    
-	<atom:link href="https://edanisko.com/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Thu, 26 Nov 2020 00:00:00 -0800</lastBuildDate><atom:link href="https://edanisko.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Laravel Development in Docker</title>
+      <link>https://edanisko.com/posts/2020-11-27-laravel-development-in-docker/</link>
+      <pubDate>Thu, 26 Nov 2020 00:00:00 -0800</pubDate>
+      
+      <guid>https://edanisko.com/posts/2020-11-27-laravel-development-in-docker/</guid>
+      <description>There&amp;rsquo;s a lot of PHP code out there. Wordpress, Drupal, Zend, Laravel. These are just a few of the untold endless frameworks. Even so, PHP has conspicuously been left out of the buzzword rich, serverless revolution. Today&amp;rsquo;s PHP developer might be asking, am I the last. A remaining holdout of a simpler, more complicated time. Maybe. Surely the last ALGOL developer questioned the end, before it came.
+Still there is a lot more PHP code out there than ALGOL, I&amp;rsquo;m guessing.</description>
+    </item>
     
     <item>
       <title>AWS CloudFormation Using CFN-Modules</title>
@@ -28,7 +34,8 @@
       
       <guid>https://edanisko.com/shortcuts/</guid>
       <description>This page is for links and snippets that I use regularly enough that I need a place for them.
-Hugo Build Command $ rm -rf /docs &amp;amp;&amp;amp; HUGO_ENV=production hugo -d docs --minify AWS SSO Login https://edanisko.awsapps.com/login/</description>
+Hugo Build Command $ rm -rf /docs &amp;amp;&amp;amp; HUGO_ENV=production hugo -d docs --minify AWS SSO Login https://edanisko.awsapps.com/login/
+Docker docker rm phplaravel-container -f docker build -t phplaravel:latest -f Dockerfile . docker run --name phplaravel-container -t -d phplaravel docker exec -it phplaravel-container bash </description>
     </item>
     
     <item>
@@ -61,13 +68,24 @@ Hugo Build Command $ rm -rf /docs &amp;amp;&amp;amp; HUGO_ENV=production hugo -d
     </item>
     
     <item>
+      <title>NextJS - Supabase - Prisma</title>
+      <link>https://edanisko.com/posts/2022-11-11-nextjs-supabase-firehost-prisma/</link>
+      <pubDate>Sun, 24 Feb 2019 23:00:55 -0800</pubDate>
+      
+      <guid>https://edanisko.com/posts/2022-11-11-nextjs-supabase-firehost-prisma/</guid>
+      <description>** Making a Free NextJS Front-end, SQL back-end with Migrations **
+Is PHP Dead? It&amp;rsquo;s everywhere on the internet. Didn&amp;rsquo;t the know it all managers learn their lesson from Ruby on Rails. It&amp;rsquo;s gone. Dead. Latin. Spotify and Netflix are using it. But they are the only companies that can afford to hire a Ruby dev.
+Ruby was a flash in the pan. I did like Rails. Which Laravel stole from heavily and I love me some Laravel.</description>
+    </item>
+    
+    <item>
       <title>Contact</title>
       <link>https://edanisko.com/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://edanisko.com/contact/</guid>
       <description>Send me a note if you like. This form uses Formspree, a simple, free form service.
-Your Name Email Address An email address is required.  Message   </description>
+Your Name Email Address An email address is required. Message </description>
     </item>
     
   </channel>

@@ -5,10 +5,6 @@
     <link>https://edanisko.com/about/</link>
     <description>Recent content in About on EdAnisko.com</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://edanisko.com/about/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://edanisko.com/about/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

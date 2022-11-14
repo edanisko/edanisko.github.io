@@ -6,10 +6,51 @@
     <description>Recent content in Categories on EdAnisko.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Oct 2020 20:47:51 -0800</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2020 00:00:00 -0800</lastBuildDate><atom:link href="https://edanisko.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Development</title>
+      <link>https://edanisko.com/categories/development/</link>
+      <pubDate>Thu, 26 Nov 2020 00:00:00 -0800</pubDate>
+      
+      <guid>https://edanisko.com/categories/development/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="https://edanisko.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker</title>
+      <link>https://edanisko.com/categories/docker/</link>
+      <pubDate>Thu, 26 Nov 2020 00:00:00 -0800</pubDate>
+      
+      <guid>https://edanisko.com/categories/docker/</guid>
+      <description></description>
+    </item>
     
+    <item>
+      <title>Jetstream</title>
+      <link>https://edanisko.com/categories/jetstream/</link>
+      <pubDate>Thu, 26 Nov 2020 00:00:00 -0800</pubDate>
+      
+      <guid>https://edanisko.com/categories/jetstream/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Laravel</title>
+      <link>https://edanisko.com/categories/laravel/</link>
+      <pubDate>Thu, 26 Nov 2020 00:00:00 -0800</pubDate>
+      
+      <guid>https://edanisko.com/categories/laravel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP</title>
+      <link>https://edanisko.com/categories/php/</link>
+      <pubDate>Thu, 26 Nov 2020 00:00:00 -0800</pubDate>
+      
+      <guid>https://edanisko.com/categories/php/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>AWS</title>
@@ -66,15 +107,6 @@
     </item>
     
     <item>
-      <title>Laravel</title>
-      <link>https://edanisko.com/categories/laravel/</link>
-      <pubDate>Mon, 04 Mar 2019 22:45:54 -0800</pubDate>
-      
-      <guid>https://edanisko.com/categories/laravel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Nova</title>
       <link>https://edanisko.com/categories/nova/</link>
       <pubDate>Mon, 04 Mar 2019 22:45:54 -0800</pubDate>
@@ -89,6 +121,15 @@
       <pubDate>Mon, 04 Mar 2019 22:45:54 -0800</pubDate>
       
       <guid>https://edanisko.com/categories/packages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NextJS</title>
+      <link>https://edanisko.com/categories/nextjs/</link>
+      <pubDate>Sun, 24 Feb 2019 23:00:55 -0800</pubDate>
+      
+      <guid>https://edanisko.com/categories/nextjs/</guid>
       <description></description>
     </item>
     
