@@ -4,8 +4,10 @@ date: 2022-11-11T23:00:55-08:00
 author: Ed Anisko
 layout: post
 aliases:
+featured_image: '/img/nextjs.png'
 categories:
   - NextJS
+  - SQL
 tags:
   - nextjs
   - tailwindcss
