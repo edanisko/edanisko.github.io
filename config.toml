@@ -8,7 +8,7 @@ disqusShortname = "edanisko"
 DefaultContentLanguage = "en"
 SectionPagesMenu = "main"
 Paginate = 9 # this is set low for demonstrating with dummy content. Set to a higher number
-googleAnalytics = "UA-36438806-2"
+googleAnalytics = "G-R3HHRTR66H"
 enableRobotsTXT = true
 
 

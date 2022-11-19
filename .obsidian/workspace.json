@@ -1,0 +1,153 @@
+{
+  "main": {
+    "id": "2d01b3b2d1c0dd69",
+    "type": "split",
+    "children": [
+      {
+        "id": "0e550540e7b19a07",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c81550fc7e82b642",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4ef3cbc1aa26e640",
+    "type": "split",
+    "children": [
+      {
+        "id": "58133993da0dc13a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b6d34ac13a27cb0e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "f6eb9f05fe5892fc",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#something",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "9bf875012844afa4",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9c3b4ec910b5e7db",
+    "type": "split",
+    "children": [
+      {
+        "id": "dbdbd52842c3b840",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "38703ef0033e1e09",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "39a5aa1d81369746",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "51c3fcfdd69db9b4",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "f8219bd014616357",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          },
+          {
+            "id": "17947a706e32aaf9",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "c81550fc7e82b642",
+  "lastOpenFiles": [
+    "ideas/Idea Generator.md",
+    "content/img/ideas/Pasted image 20221119145738.png",
+    "obsidian/templates/post-template.md",
+    "ideas/2022-11-17-testing-obsidian-plugins.md",
+    "ideas/2022-11-17-adding-supabase-auth-to-your-project.md",
+    "ideas/2020-10-28-super-simple-docker.md",
+    "2022-11-17.md",
+    "ideas/shortcuts.md",
+    "Untitled.md",
+    "content/posts/2019-02-24-laravel-permissions-working-with-roles.md"
+  ]
+}
