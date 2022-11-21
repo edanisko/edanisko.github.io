@@ -1,5 +1,5 @@
 ---
-title: 'AWS CloudFormation Using CFN-Modules'
+title: AWS CloudFormation Using CFN-Modules
 date: 2020-10-15T20:47:51-08:00
 author: Ed Anisko
 layout: post
@@ -7,6 +7,7 @@ categories:
   - CloudFormation
   - AWS
   - CFN-Modules
+lastmod: 2022-11-21T04:35:47.520Z
 ---
 # 
 

@@ -1,20 +1,23 @@
 ---
-title: 'Laravel Permissions - Working with Roles'
+title: Laravel Permissions - Working with Roles
 date: 2019-02-24T23:00:55-08:00
 author: Ed Anisko
 layout: post
-featured_image: '/img/laravel.png'
+featured_image: /img/laravel.png
+images:
+  - /img/laravel.png
 aliases:
-    - /laravel-permissions-working-with-roles/
+  - /laravel-permissions-working-with-roles/
 categories:
   - Laravel
 tags:
-  - laravel 
-  - nova 
-  - "spatie permissions" 
-  - gate 
-  - seeder 
+  - laravel
+  - nova
+  - spatie permissions
+  - gate
+  - seeder
   - policy
+lastmod: 2022-11-21T05:24:32.098Z
 ---
 
 **Install the Package**

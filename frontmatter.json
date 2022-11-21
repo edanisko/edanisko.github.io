@@ -1,0 +1,130 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": null,
+      "fields": [
+        {
+          "title": "title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "date",
+          "name": "date",
+          "type": "datetime"
+        },
+        {
+          "title": "author",
+          "name": "author",
+          "type": "string"
+        },
+        {
+          "title": "layout",
+          "name": "layout",
+          "type": "string"
+        },
+        {
+          "title": "aliases",
+          "name": "aliases",
+          "type": "datetime"
+        },
+        {
+          "title": "featured_image",
+          "name": "featured_image",
+          "type": "string"
+        },
+        {
+          "title": "description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "keywords",
+          "name": "keywords",
+          "type": "choice",
+          "choices": [
+            "NextJS",
+            "TailwindCSS",
+            "Supabase",
+            "Prisma"
+          ]
+        },
+        {
+          "title": "categories",
+          "name": "categories",
+          "type": "categories"
+        },
+        {
+          "title": "tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "image",
+          "name": "image",
+          "type": "string"
+        },
+        {
+          "title": "lastmod",
+          "name": "lastmod",
+          "type": "datetime"
+        }
+      ]
+    }
+  ],
+  "frontMatter.framework.id": "hugo",
+  "frontMatter.content.publicFolder": "static",
+  "frontMatter.content.pageFolders": [
+    {
+      "path": "[[workspace]]/content",
+      "title": "content"
+    }
+  ],
+  "frontMatter.taxonomy.tags": [
+    "SQL",
+    "api",
+    "apps",
+    "cockroachdb",
+    "free hosting",
+    "free website",
+    "gate",
+    "laravel",
+    "nextjs",
+    "node",
+    "nova",
+    "policy",
+    "prisma",
+    "quasar",
+    "scene",
+    "seeder",
+    "spatie permissions",
+    "subabase",
+    "tailwind",
+    "tailwindcss",
+    "trading",
+    "vercel"
+  ],
+  "frontMatter.content.wysiwyg": true,
+  "frontMatter.taxonomy.categories": [
+    "AWS",
+    "CFN-Modules",
+    "CloudFormation",
+    "Development",
+    "Docker",
+    "Jetstream",
+    "Laravel",
+    "NextJS",
+    "Node",
+    "Nova",
+    "PHP",
+    "Packages",
+    "Quasar",
+    "SQL",
+    "Trading"
+  ],
+  "frontMatter.content.autoUpdateDate": true,
+  "frontMatter.preview.host": "http://localhost:1313"
+}

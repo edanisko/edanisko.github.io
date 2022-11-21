@@ -1,9 +1,8 @@
 ---
-title: "Contact"
-featured_image: '/img/bridge.jpg'
-description: "Ya, I can do that."
-
-
+title: Contact
+featured_image: /img/bridge.jpg
+description: Ya, I can do that.
+lastmod: 2022-11-21T04:36:53.837Z
 ---
 
 

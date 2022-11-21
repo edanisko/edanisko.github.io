@@ -1,20 +1,21 @@
 ---
-title: 'Adding Alpaca API to Quasar with VueJS'
+title: Adding Alpaca API to Quasar with VueJS
 date: 2020-08-05T22:45:54-08:00
 author: Ed Anisko
 layout: post
 aliases:
-    - /posts/2020-08-05-quasar-queries/
+  - /posts/2020-08-05-quasar-queries/
 categories:
   - Quasar
   - Node
   - Trading
 tags:
-  - api 
-  - node 
+  - api
+  - node
   - trading
-  - apps 
-  - quasar    
+  - apps
+  - quasar
+lastmod: 2022-11-21T04:37:00.101Z
 ---
 Its easy enough to use the alpaca CLI in a flat js file.  Next step is to add it to an application, add a few buttons and make it do something. 
 

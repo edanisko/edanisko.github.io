@@ -1,14 +1,15 @@
 ---
-title: 'Laravel Nova - Big Filter Menu'
+title: Laravel Nova - Big Filter Menu
 date: 2019-03-04T22:45:54-08:00
 author: Ed Anisko
 layout: post
 aliases:
-    - /laravel-nova-big-filter-menu/
+  - /laravel-nova-big-filter-menu/
 categories:
   - Laravel
   - Nova
   - Packages
+lastmod: 2022-11-21T04:37:02.316Z
 ---
 Laravel Nova is a great way to get an admin panel up and running. If you built your project with Laravel, Nova will fit right on top. You can create resources based on your models. The resources have all sorts of fields so you can display<!--more--> and edit your data. You can create metrics for fancy displays of certain values. It all ties nicely together with custom filters firing off axios queries into the nova api so you can zip through your data as light speed.
 

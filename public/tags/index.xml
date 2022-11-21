@@ -8,34 +8,7 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 11 Nov 2022 23:00:55 -0800</lastBuildDate><atom:link href="https://edanisko.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>cockroachdb</title>
-      <link>https://edanisko.com/tags/cockroachdb/</link>
-      <pubDate>Fri, 11 Nov 2022 23:00:55 -0800</pubDate>
-      
-      <guid>https://edanisko.com/tags/cockroachdb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>free hosting</title>
-      <link>https://edanisko.com/tags/free-hosting/</link>
-      <pubDate>Fri, 11 Nov 2022 23:00:55 -0800</pubDate>
-      
-      <guid>https://edanisko.com/tags/free-hosting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>free website</title>
-      <link>https://edanisko.com/tags/free-website/</link>
-      <pubDate>Fri, 11 Nov 2022 23:00:55 -0800</pubDate>
-      
-      <guid>https://edanisko.com/tags/free-website/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>nextjs</title>
+      <title>NextJs</title>
       <link>https://edanisko.com/tags/nextjs/</link>
       <pubDate>Fri, 11 Nov 2022 23:00:55 -0800</pubDate>
       
@@ -44,7 +17,7 @@
     </item>
     
     <item>
-      <title>prisma</title>
+      <title>Prisma</title>
       <link>https://edanisko.com/tags/prisma/</link>
       <pubDate>Fri, 11 Nov 2022 23:00:55 -0800</pubDate>
       
@@ -62,25 +35,16 @@
     </item>
     
     <item>
-      <title>subabase</title>
-      <link>https://edanisko.com/tags/subabase/</link>
+      <title>Supabase</title>
+      <link>https://edanisko.com/tags/supabase/</link>
       <pubDate>Fri, 11 Nov 2022 23:00:55 -0800</pubDate>
       
-      <guid>https://edanisko.com/tags/subabase/</guid>
+      <guid>https://edanisko.com/tags/supabase/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>tailwind</title>
-      <link>https://edanisko.com/tags/tailwind/</link>
-      <pubDate>Fri, 11 Nov 2022 23:00:55 -0800</pubDate>
-      
-      <guid>https://edanisko.com/tags/tailwind/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tailwindcss</title>
+      <title>TailwindCSS</title>
       <link>https://edanisko.com/tags/tailwindcss/</link>
       <pubDate>Fri, 11 Nov 2022 23:00:55 -0800</pubDate>
       
@@ -89,7 +53,7 @@
     </item>
     
     <item>
-      <title>vercel</title>
+      <title>Vercel</title>
       <link>https://edanisko.com/tags/vercel/</link>
       <pubDate>Fri, 11 Nov 2022 23:00:55 -0800</pubDate>
       

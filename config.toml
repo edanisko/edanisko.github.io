@@ -7,6 +7,11 @@ disqusShortname = "edanisko"
 disable_share = false
 
 DefaultContentLanguage = "en"
+[languages]
+  [languages.en]
+    title = 'EdAnisko.com'
+    weight = 1
+    
 SectionPagesMenu = "main"
 Paginate = 9 # this is set low for demonstrating with dummy content. Set to a higher number
 googleAnalytics = "G-R3HHRTR66H"
@@ -38,5 +43,10 @@ enableRobotsTXT = true
   featured_image = "/images/rsz_jesus-kiteque-wn-kyahwcis-unsplash.jpg"
   recent_posts_number = 4
   
+
+[[params.ananke_socials]]
+name = "twitter"
+url = "https://twitter.com/edanisko"
+
 [markup.goldmark.renderer]
   unsafe = true

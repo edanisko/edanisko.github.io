@@ -1,7 +1,9 @@
 ---
-title: 'Laravel Development in Docker'
+title: Laravel Development in Docker
 date: 2020-11-26T00:00:00-08:00
-featured_image: '/img/coffee.jpg'
+featured_image: /img/coffee.jpg
+images:
+  - /img/coffee.jpg
 author: Ed Anisko
 layout: post
 categories:
@@ -10,6 +12,7 @@ categories:
   - Laravel
   - Jetstream
   - PHP
+lastmod: 2022-11-21T05:24:14.240Z
 ---
 There's a lot of PHP code out there.  Wordpress, Drupal, Zend, Laravel.  These are just a few of the untold endless frameworks.  Even so, PHP has conspicuously been left out of the buzzword rich, serverless revolution.  Today's PHP developer might be asking, am I the last. A remaining holdout of a simpler, more complicated time.  Maybe.  Surely the last ALGOL developer questioned the end, before it came.
 

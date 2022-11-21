@@ -1,24 +1,29 @@
 ---
-title: 'NextJS - TailwindCSS - Supabase - Prisma'
+title: NextJS - TailwindCSS - Supabase - Prisma
 date: 2022-11-11T23:00:55-08:00
 author: Ed Anisko
 layout: post
-aliases:
-featured_image: '/img/nextjs.png'
+aliases: null
+featured_image: /img/nextjs.png
+images:
+  - /img/nextjs.png
+description: NextJS - TailwindCSS - Supabase - Prisma
+keywords:
+  - NextJS
+  - TailwindCSS
+  - Supabase
+  - Prisma
 categories:
   - NextJS
   - SQL
 tags:
-  - nextjs
-  - tailwindcss
-  - tailwind
-  - subabase
-  - cockroachdb
-  - prisma 
-  - vercel
-  - "free website" 
-  - "free hosting"
+  - NextJs
+  - TailwindCSS
+  - Supabase
+  - Prisma
+  - Vercel
   - SQL
+lastmod: 2022-11-21T05:24:03.462Z
 ---
 
 ## A NextJS Site with a SQL Backend
@@ -27,7 +32,7 @@ It's raining JavaScript frameworks! There are as many frameworks as there are fr
 
 So where can you get a free SQL database?  Supabase and CockroachDB.  Supabase is a more feature rich.  It has a friendly user interface.  You can view your data and query against it in the browser.  Supabase also has an Auth service, somthing like S3 storage and more.  
 
-CockroachDB has less but is more... simple.  It gives you a server and a good selection of connection strings.  However the integration with Prisma is not as smooth.  I found myself having to change data types.  For example, Int to BigInt so that autoincrement works properly in the id field of a model.  
+CockroachDB has less but is more... simple.  It gives you a server and a good selection of connection strings.  However the integration with the ORM is not as smooth.  I found myself having to change data types.  For example, Int to BigInt so that autoincrement works properly in the id field of a model.  
 
 Prisma is the ORM that will glue this project together.  So eventhough I like the simplicity of CockroachDB, I'm going to use Supabase for this project.  
 
@@ -92,7 +97,7 @@ DATABASE_URL="postgresql://postgres:[YOUR-PASSWORD]@db.ydzrfarzqidhroyvbvbq.supa
 
 
 
-## Tailwind CSS
+## TailwindCSS
 
 ```bash
 pnpm install -D tailwindcss postcss autoprefixer
@@ -100,7 +105,7 @@ pnpm install -D tailwindcss postcss autoprefixer
 pnpx tailwindcss init -p
 ```
 
-This will create your **tailwind.config.js** and **postcss.config.js** files.  No change is needed in the postcss file.  You will edit the tailwind file, it should look like this.
+This will create your **tailwind.config.js** and **postcss.config.js** files.  No change is needed in the postcss file.  You will edit the TailwindCSS config file, it should look like this.
 
 ```javascript
 /** @type {import('tailwindcss').Config} */
@@ -117,7 +122,9 @@ module.exports = {
 }
 ```
 
-Next delete whatever is in the **/app/global.css** file and relpace it.
+Next delete whatever is in the **/app/global.css** file and relpace it.  You can add things later but for now I will only be adding the TailwindCSS base styles. 
+
+```bash
 
 ```css
 @tailwind base;
@@ -159,7 +166,7 @@ pnpm install typescript ts-node @types/node --save-dev
 
 ```
 
-Prisma wants the sourceMap and outDir added to **tsconfig.json**.  The rest we already have.
+The package wants the sourceMap and outDir added to **tsconfig.json**.  The rest we already have.
 
 ```tsx
 {
@@ -170,7 +177,7 @@ Prisma wants the sourceMap and outDir added to **tsconfig.json**.  The rest we a
 }
 ```
 
-Next, install the Prisma packages.
+Next, install the packages.
 
 ```bash
 pnpm install prisma --save-dev
@@ -181,9 +188,9 @@ pnpm install @prisma/client
 
 ```
 
-You will find the Prisma configuration files in a new folder and file in your project.  
+You will find the configuration files in a new folder and file in your project.  
 
-Update the /prisma/schema.prisma with a few models.  I took these examples directly from the Prisma site.
+Update the schema.prisma with a few models.  I took these examples directly from the Prisma site.
 
 ```tsx
 generator client {
@@ -219,7 +226,13 @@ Now create those tables in the database.
 pnpm prisma db push
 ``` 
 
-Oh my stars!  It worked!  Prisma looked at the schema file, turned it into SQL and created the tables on the database.
+Oh my stars!  It worked!  The schema file has been turned into SQL and the tables created on the database.
+
+As a side note, I was also able to build an entire Laravel project using blueprint.  I migrated the database to Supabase and then used the pull command to create the schema files in JS.
+
+```bash
+pnpm prisma db pull
+``` 
 
 ---
 
@@ -227,7 +240,7 @@ Oh my stars!  It worked!  Prisma looked at the schema file, turned it into SQL a
 
 To finish up, I'd like to add a few rows to the database and read them back through NextJS.
 
-You can add rows directly into the Supabase console.  There is a local console that comes with Prisma that is very easy to use too.
+You can add rows directly into the Supabase console.  There is a local console that is very easy to use too.
 
 ```bash
 pnpm prisma studio
@@ -260,4 +273,4 @@ export default async function Page() {
 }
 ```
 
-And there you have it.  A NextJS app with Tailwind CSS and Prisma talking to a SQL database.  I hope this helps you get started.  I'm sure there are a few things I missed.  If you have any questions, please ask.  I'll do my best to answer.  I'm still learning too.  I'm sure there are better ways to do things.  I'm open to suggestions.  Thanks for reading.  Happy coding!
+And there you have it.  I hope this helps you get started.  If there is anything I missed and you would like to add, comment below.  If you have any questions, please ask.  I'll do my best to answer.  I'm still learning too.  I'm sure there are better ways to do things.  I'm open to suggestions.  Thanks for reading.  Happy coding!
