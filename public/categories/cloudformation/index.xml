@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CloudFormation on EdAnisko.com</title>
+    <link>https://edanisko.com/categories/cloudformation/</link>
+    <description>Recent content in CloudFormation on EdAnisko.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Oct 2020 20:47:51 -0800</lastBuildDate><atom:link href="https://edanisko.com/categories/cloudformation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS CloudFormation Using CFN-Modules</title>
+      <link>https://edanisko.com/posts/2020-10-15-aws-cloudformation-using-cfn-modules/</link>
+      <pubDate>Thu, 15 Oct 2020 20:47:51 -0800</pubDate>
+      
+      <guid>https://edanisko.com/posts/2020-10-15-aws-cloudformation-using-cfn-modules/</guid>
+      <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+&lt;p&gt;Adding infrastructure as code to a project? The cfn-modules repositories are prebuilt scripts that will launch nested stacks in AWS Cloudformation. It&amp;rsquo;s everything you hope it will be.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
