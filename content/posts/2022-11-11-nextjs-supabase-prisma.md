@@ -139,9 +139,9 @@ Next open **/app/page.tsx**.  This is the home page.  Let's make it super simple
 ```tsx
 export default function Home() {
   return (
-    <h1 className="text-3xl font-bold underline">
+    <p className="text-3xl font-bold underline">
       Hello Next and Tailwind!
-    </h1>
+    </p>
   )
 }
 ```

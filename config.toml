@@ -4,7 +4,7 @@ canonifyurls=true
 languageCode = "en-us"
 theme = "ananke"
 
-disqusShortname = "edanisko"
+# disqusShortname = "edanisko"
 disable_share = false
 
 DefaultContentLanguage = "en"
