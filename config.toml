@@ -1,5 +1,6 @@
 title = "EdAnisko.com"
 baseURL = "https://edanisko.com"
+canonifyurls=true
 languageCode = "en-us"
 theme = "ananke"
 
@@ -43,10 +44,8 @@ enableRobotsTXT = true
   featured_image = "/images/rsz_jesus-kiteque-wn-kyahwcis-unsplash.jpg"
   recent_posts_number = 4
   
+  
 
-[[params.ananke_socials]]
-name = "twitter"
-url = "https://twitter.com/edanisko"
 
 [markup.goldmark.renderer]
   unsafe = true
