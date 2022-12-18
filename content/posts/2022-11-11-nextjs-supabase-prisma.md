@@ -7,7 +7,7 @@ aliases: null
 featured_image: /img/nextjs.png
 images:
   - /img/nextjs.png
-description: NextJS - TailwindCSS - Supabase - Prisma
+description: "Building a NextJS site with a SQL backend."
 keywords:
   - NextJS
   - TailwindCSS
@@ -15,15 +15,9 @@ keywords:
   - Prisma
 categories:
   - NextJS
-  - SQL
 tags:
-  - NextJs
-  - TailwindCSS
-  - Supabase
-  - Prisma
-  - Vercel
-  - SQL
-lastmod: 2022-11-21T05:24:03.462Z
+  - NextJs  
+lastmod: 2022-12-17T10:32:33.431Z
 ---
 
 ## A NextJS Site with a SQL Backend

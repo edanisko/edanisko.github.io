@@ -4,22 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "0e550540e7b19a07",
+        "id": "b902581d6807615c",
         "type": "tabs",
         "children": [
           {
-            "id": "c81550fc7e82b642",
+            "id": "11b8b8448aace7f4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/posts/2022-11-11-nextjs-supabase-prisma.md",
-                "mode": "preview",
+                "file": "ideas/2020-09-30-dynamodb-what-you-need-to-know.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "57cf8e4d3e25fc0f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ideas/2022-12-16-svelte-kit.md",
+                "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/posts/2022-11-11-nextjs-supabase-prisma.md",
+                "file": "ideas/2022-12-16-svelte-kit.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/posts/2022-11-11-nextjs-supabase-prisma.md",
+                "file": "ideas/2022-12-16-svelte-kit.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/posts/2022-11-11-nextjs-supabase-prisma.md"
+                "file": "ideas/2022-12-16-svelte-kit.md"
               }
             }
           },
@@ -145,17 +158,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "c81550fc7e82b642",
+  "active": "57cf8e4d3e25fc0f",
   "lastOpenFiles": [
-    "ideas/Idea Generator.md",
-    "content/img/ideas/Pasted image 20221119145738.png",
-    "obsidian/templates/post-template.md",
+    "ideas/2020-09-30-dynamodb-what-you-need-to-know.md",
     "ideas/2022-11-17-testing-obsidian-plugins.md",
-    "ideas/2022-11-17-adding-supabase-auth-to-your-project.md",
-    "ideas/2020-10-28-super-simple-docker.md",
-    "2022-11-17.md",
-    "ideas/shortcuts.md",
-    "Untitled.md",
-    "content/posts/2019-02-24-laravel-permissions-working-with-roles.md"
+    "ideas/Idea Generator.md",
+    "obsidian/templates/post-template.md",
+    "obsidian/teach-me-game-javascript/15.md",
+    "obsidian/teach-me-game-javascript/02.md",
+    "obsidian/teach-me-game-javascript/01.md",
+    "obsidian/teach-me-game-dev-in-metal/05.md",
+    "obsidian/teach-me-game-dev-in-metal/04.md",
+    "obsidian/teach-me-game-dev-in-metal/03.md"
   ]
 }
