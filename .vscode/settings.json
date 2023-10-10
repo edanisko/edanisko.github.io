@@ -1,5 +1,0 @@
-{
-    "[markdown]": {
-    },
-    "frontMatter.framework.startCommand": "HUGO_ENV=production hugo -D serve --disableFastRender"
-}

@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "/Users/ea/Projects/edanisko.github.io",
+	"sourceRoot": "/Users/ea/Projects/blogs/edanisko.github.io",
 	"sources": [
 		"ananke/css/main.css"
 	],
